@@ -15,11 +15,7 @@ before_install:
   - ansible --version
 
 insall:
-  - |
-    cat > ansible.cfg <<EOF
-[defaults]
-roles_path=../
-EOF
+  - printf '[defaults]\nroles_path=../' >ansible.cfg
   - ln -s ansible-role-docker ../docker
 
 script:
