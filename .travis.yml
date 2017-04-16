@@ -1,29 +1,31 @@
 ---
-language: python
-python: "2.7"
 
-# Use the new container infrastructure
-sudo: false
+sudo: required
 
-# Install ansible
-addons:
-  apt:
-    packages:
-    - python-pip
+dist: trusty
 
-install:
-  # Install ansible
-  - pip install ansible
+language: generic
 
-  # Check ansible version
+before_install:
+  - sudo apt-get install -y software-properties-common
+  - sudo apt-add-repository -y ppa:fkrull/deadsnakes-python2.7
+  - sudo apt-add-repository -y ppa:ansible/ansible
+  - sudo apt-get update
+  - sudo apt-get -y install ansible python2.7
   - ansible --version
 
-  # Create ansible.cfg with correct roles_path
-  - printf '[defaults]\nroles_path=../' >ansible.cfg
+insall:
+  - |
+    cat > ansible.cfg <<EOF
+[defaults]
+roles_path=../
+EOF
+  - ln -s ansible-role-docker ../docker
 
 script:
-  # Basic role syntax check
-  - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
+  - sudo ansible-playbook tests/test.yml -i tests/hosts --syntax-check
+  - sudo ansible-playbook tests/test.yml -i tests/hosts
+  - sudo ansible-playbook tests/test.yml -i tests/hosts | grep -q 'unreachable=0.*failed=0' && exit 0 || exit 1
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
