@@ -17,9 +17,9 @@ install:
   - ansible --version
 
 script:
-  - ansible-playbook tests/test.yml -i tests/hosts --syntax-check
-  - ansible-playbook tests/test.yml -i tests/hosts
-  - ansible-playbook tests/test.yml -i tests/hosts | grep -q 'unreachable=0.*failed=0' && exit 0 || exit 1
+  - sudo ansible-playbook tests/test.yml -i tests/hosts --syntax-check
+  - sudo ansible-playbook tests/test.yml -i tests/hosts
+  - sudo ansible-playbook tests/test.yml -i tests/hosts | grep -q 'unreachable=0.*failed=0' && exit 0 || exit 1
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
