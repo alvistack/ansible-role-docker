@@ -12,6 +12,8 @@
   with_items:
     - { state: "present", name: "apt-transport-https" }
     - { state: "present", name: "ca-certificates" }
+    - { state: "present", name: "curl" }
+    - { state: "present", name: "software-properties-common" }
   tags: docker
 
 - name: apt-key add

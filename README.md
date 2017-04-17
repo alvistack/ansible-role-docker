@@ -5,7 +5,7 @@ Ansible Role for Docker
 [![GitHub tag](https://img.shields.io/github/tag/alvistack/ansible-role-docker.svg)](https://github.com/alvistack/ansible-role-docker)
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-docker.svg)](https://github.com/alvistack/ansible-role-docker/blob/master/LICENSE)
 
-Ansible Role for Docker Installation (what the hell is this!?).
+Ansible Role for Docker Installation.
 
 Requirements
 ------------
@@ -29,7 +29,7 @@ Example Playbook
 
     - hosts: all
       roles:
-        - role: docker
+        - role: ansible-role-docker
 
 License
 -------
