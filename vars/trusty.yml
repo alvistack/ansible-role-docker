@@ -1,0 +1,18 @@
+---
+# vars file for docker (trusty)
+
+_apt_key: [
+  { state: "present", url: "https://yum.dockerproject.org/gpg" },
+]
+_apt_repository: [
+  { state: "present", repo: "deb https://apt.dockerproject.org/repo/ ubuntu-trusty main" },
+]
+_apt: [
+  { state: "latest", name: "dmsetup" },
+  { state: "latest", name: "docker-engine" },
+  { state: "latest", name: "linux-generic-lts-xenial" },
+]
+_pip: [
+  { state: "present", name: "docker-compose" },
+  { state: "present", name: "docker-py" },
+]

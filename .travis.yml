@@ -1,29 +1,30 @@
 ---
+
+sudo: required
+
+dist: trusty
+
 language: python
+
 python: "2.7"
 
-# Use the new container infrastructure
-sudo: false
-
-# Install ansible
 addons:
   apt:
     packages:
-    - python-pip
+      - python-pip
 
-install:
-  # Install ansible
-  - pip install ansible
-
-  # Check ansible version
+before_install:
+  - pip install -r requirements.txt
   - ansible --version
 
-  # Create ansible.cfg with correct roles_path
+install:
   - printf '[defaults]\nroles_path=../' >ansible.cfg
+  - ln -s ansible-role-docker ../docker
 
 script:
-  # Basic role syntax check
-  - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
+  - sudo ansible-playbook tests/test.yml -i tests/hosts --syntax-check
+  - sudo ansible-playbook tests/test.yml -i tests/hosts
+  - sudo ansible-playbook tests/test.yml -i tests/hosts | grep -q 'unreachable=0.*failed=0' && exit 0 || exit 1
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
