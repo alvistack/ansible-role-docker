@@ -2,14 +2,17 @@
 # vars file for docker (xenial)
 
 _apt_key: [
-  { state: "present", url: "https://yum.dockerproject.org/gpg" },
+  { state: "present", url: "https://download.docker.com/linux/ubuntu/gpg" },
 ]
 _apt_repository: [
-  { state: "present", repo: "deb https://apt.dockerproject.org/repo/ ubuntu-xenial main" },
+  { state: "absent", repo: "deb https://apt.dockerproject.org/repo/ ubuntu-xenial main" },
+  { state: "present", repo: "deb https://download.docker.com/linux/ubuntu xenial stable "},
 ]
 _apt: [
+  { state: "absent", name: "docker" },
+  { state: "absent", name: "docker-engine" },
   { state: "latest", name: "dmsetup" },
-  { state: "latest", name: "docker-engine" },
+  { state: "latest", name: "docker-ce" },
   { state: "latest", name: "linux-generic-lts-xenial" },
 ]
 _pip: [
