@@ -1,1 +1,6 @@
 ansible
+ndg-httpsclient
+pip
+pyasn1
+pyopenssl
+urllib3
