@@ -13,7 +13,7 @@ before_install:
 
 install:
   - printf '[defaults]\nroles_path=../' > ansible.cfg
-  - pip install --upgrade -r requirements.txt
+  - pip install ansible
   - ansible --version
 
 script:
