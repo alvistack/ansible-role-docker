@@ -4,14 +4,17 @@ sudo: required
 
 dist: trusty
 
-language: generic
+language: python
+
+python: "2.7"
+
+addons:
+  apt:
+    packages:
+      - python-pip
 
 before_install:
-  - sudo apt-get install -y software-properties-common
-  - sudo apt-add-repository -y ppa:fkrull/deadsnakes-python2.7
-  - sudo apt-add-repository -y ppa:ansible/ansible
-  - sudo apt-get update
-  - sudo apt-get -y install ansible python2.7
+  - pip install -r requirements.txt
   - ansible --version
 
 install:
