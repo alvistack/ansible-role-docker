@@ -14,7 +14,7 @@ addons:
       - python-pip
 
 before_install:
-  - pip install -r requirements.txt
+  - pip install --upgrade -r requirements.txt
   - ansible --version
 
 install:
