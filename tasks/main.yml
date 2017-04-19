@@ -19,7 +19,7 @@
 - name: apt-key add
   apt_key:
     url: "{{ item.url }}"
-    key: "{{ item.key }}"
+    id: "{{ item.id }}"
     state: "{{ item.state }}"
   with_items: "{{ _apt_key }}"
   tags: docker

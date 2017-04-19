@@ -2,8 +2,8 @@
 # vars file for docker (xenial)
 
 _apt_key: [
-  { state: "absent", key: "2C52609D", url: "https://yum.dockerproject.org/gpg" },
-  { state: "present", key: "0EBFCD88", url: "https://download.docker.com/linux/ubuntu/gpg" },
+  { state: "absent", id: "2C52609D", url: "https://yum.dockerproject.org/gpg" },
+  { state: "present", id: "0EBFCD88", url: "https://download.docker.com/linux/ubuntu/gpg" },
 ]
 _apt_repository: [
   { state: "absent", repo: "deb https://apt.dockerproject.org/repo/ ubuntu-xenial main" },
