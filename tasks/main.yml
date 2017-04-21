@@ -17,8 +17,12 @@
 # (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
 
 - name: include release specific variables
-  include_vars: "{{ ansible_distribution_release }}.yml"
-  tags: docker
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution | lower }}-{{ansible_distribution_release | lower }}.yml"
+    - "{{ ansible_distribution | lower }}.yml"
+  tags:
+    - always
 
 - name: apt-get install
   apt:
