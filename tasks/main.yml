@@ -42,7 +42,6 @@
   pip:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
-    extra_args: "--upgrade"
   with_items: "{{ _pip }}"
   notify: restart docker
   tags: docker
