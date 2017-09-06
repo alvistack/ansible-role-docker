@@ -24,6 +24,6 @@
 - hosts: all
   remote_user: root
   tasks:
-    - name: systemctl status docker.service
+    - name: /etc/init.d/docker status
       shell: |
-        systemctl status docker.service
+        /etc/init.d/docker status
