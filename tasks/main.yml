@@ -44,13 +44,13 @@
     state: "{{ item.state }}"
     extra_args: "--upgrade"
   with_items: "{{ _pip }}"
+  notify: restart docker
   tags: docker
 
 - name: enable service
   service:
-    name: "{{ item.name }}"
-    enabled: "{{ item.enabled }}"
-  with_items:
-    - { name: "docker", enabled: "yes" }
+    name: "docker"
+    state: "started"
+    enabled: "yes"
   notify: restart docker
   tags: docker
