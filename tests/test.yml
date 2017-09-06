@@ -24,6 +24,6 @@
 - hosts: all
   remote_user: root
   tasks:
-    - name: docker info
+    - name: systemctl status docker.service
       shell: |
-        docker info
+        systemctl status docker.service
