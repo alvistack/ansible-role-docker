@@ -31,6 +31,12 @@
   notify: restart docker
   tags: docker
 
+- name: apt-get update
+  apt:
+    cache_valid_time: "3600"
+    update_cache: "yes"
+  tags: docker
+
 - name: apt-get install
   apt:
     name: "{{ item.name }}"
