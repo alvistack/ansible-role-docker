@@ -10,9 +10,9 @@ Ansible Role for Docker Installation.
 Requirements
 ------------
 
-This role require Ansible 2.2 or higher.
+This role require Ansible 2.3 or higher.
 
-This role was designed for Ubuntu Server 14.04 LTS and Ubuntu Server 16.04 LTS.
+This role was designed for Ubuntu 16.04/14.04 or CentOS 7/6.
 
 Role Variables
 --------------
@@ -29,7 +29,7 @@ Example Playbook
 
     - hosts: all
       roles:
-        - role: ansible-role-docker
+        - role: docker
 
 License
 -------

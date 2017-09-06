@@ -14,9 +14,27 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- hosts: all
-  remote_user: root
-  roles:
-    - role: ansible-role-python
-    - role: ansible-role-apt
-    - role: ansible-role-docker
+- name: apt-key add
+  apt_key:
+    url: "{{ item.url }}"
+    id: "{{ item.id }}"
+    state: "{{ item.state }}"
+  with_items: "{{ _apt_key }}"
+  notify: restart docker
+  tags: docker
+
+- name: apt-add-repository
+  apt_repository:
+    repo: "{{ item.repo }}"
+    state: "{{ item.state }}"
+  with_items: "{{ _apt_repository }}"
+  notify: restart docker
+  tags: docker
+
+- name: apt-get install
+  apt:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items: "{{ _apt }}"
+  notify: restart docker
+  tags: docker

@@ -1,40 +1,41 @@
 ---
-# tasks file for docker
+
+# (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 - name: include release specific variables
-  include_vars: "{{ ansible_distribution_release }}.yml"
+  include_vars: "{{ loop_var }}"
+  with_first_found:
+    - "{{ ansible_distribution | lower }}-{{ ansible_distribution_version | lower }}.yml"
+    - "{{ ansible_distribution | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
+    - "{{ ansible_os_family | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
+    - "{{ ansible_distribution | lower }}.yml"
+    - "{{ ansible_os_family | lower }}.yml"
+  loop_control:
+    loop_var: "loop_var"
   tags: docker
 
-- name: apt-get install
-  apt:
-    name: "{{ item.name }}"
-    state: "{{ item.state }}"
-  with_items:
-    - { state: "present", name: "apt-transport-https" }
-    - { state: "present", name: "ca-certificates" }
-    - { state: "present", name: "curl" }
-    - { state: "present", name: "software-properties-common" }
-  tags: docker
-
-- name: apt-key add
-  apt_key:
-    url: "{{ item.url }}"
-    state: "{{ item.state }}"
-  with_items: "{{ _apt_key }}"
-  tags: docker
-
-- name: apt-add-repository
-  apt_repository:
-    repo: "{{ item.repo }}"
-    state: "{{ item.state }}"
-  with_items: "{{ _apt_repository }}"
-  tags: docker
-
-- name: apt-get install
-  apt:
-    name: "{{ item.name }}"
-    state: "{{ item.state }}"
-  with_items: "{{ _apt }}"
+- name: include release specific tasks
+  include: "{{ loop_var }}"
+  with_first_found:
+    - "{{ ansible_distribution | lower }}-{{ ansible_distribution_version | lower }}.yml"
+    - "{{ ansible_distribution | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
+    - "{{ ansible_os_family | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
+    - "{{ ansible_distribution | lower }}.yml"
+    - "{{ ansible_os_family | lower }}.yml"
+  loop_control:
+    loop_var: "loop_var"
   tags: docker
 
 - name: pip install
@@ -42,13 +43,13 @@
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   with_items: "{{ _pip }}"
+  notify: restart docker
   tags: docker
 
 - name: enable service
   service:
-    name: "{{ item.name }}"
-    enabled: "{{ item.enabled }}"
-  with_items:
-    - { name: "docker", enabled: "yes" }
+    name: "docker"
+    state: "started"
+    enabled: "yes"
   notify: restart docker
   tags: docker
