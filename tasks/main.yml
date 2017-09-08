@@ -56,7 +56,7 @@
 - name: docker pull
   docker_image:
     "{{ item.key }}": "{{ item.value | default(None) or omit }}"
-  with_items: "{{ docker_image }}"
+  with_dict: "{{ docker_image }}"
   tags: docker
 
 - name: docker run
