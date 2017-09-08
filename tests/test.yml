@@ -29,13 +29,10 @@
 - hosts: all
   remote_user: root
   tasks:
-    - name: download ubuntu image
-      docker_image:
-        name: "ubuntu"
-        state: "present"
-
     - name: start a container with ubuntu image
       docker_container:
         name: "ubuntu"
         image: "ubuntu"
-        state: "present"
+        pull: "yes"
+        command: "sleep infinity"
+        state: "started"
