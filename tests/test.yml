@@ -38,5 +38,6 @@
       docker_container:
         name: "ubuntu"
         image: "ubuntu"
-        command: "/bin/bash"
+        ignore_image: "yes"
+        recreate: "no"
         state: "started"
