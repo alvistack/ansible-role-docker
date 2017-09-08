@@ -25,3 +25,28 @@
   roles:
     - role: ansible-role-apt
     - role: ansible-role-docker
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: download hello-world image
+      docker_image:
+        name: "hello-world"
+        state: "present"
+
+    - name: start a container with hello-world image
+      docker_container:
+        name: "hello-world"
+        image: "hello-world"
+        state: "started"
+
+    - name: stop a container with hello-world image
+      docker_container:
+        name: "hello-world"
+        image: "hello-world"
+        state: "absent"
+
+    - name: remove hello-world image
+      docker_image:
+        name: "hello-world"
+        state: "absent"
