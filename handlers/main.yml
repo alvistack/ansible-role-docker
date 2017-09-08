@@ -16,7 +16,5 @@
 
 - name: restart docker
   service:
-    name: "{{ item.name }}"
-    state: "{{ item.state }}"
-  with_items:
-    - { name: "docker", state: "restarted" }
+    name: "docker"
+    state: "restarted"
