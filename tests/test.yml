@@ -38,4 +38,5 @@
       docker_container:
         name: "ubuntu"
         image: "ubuntu"
+        command: "/bin/bash"
         state: "started"
