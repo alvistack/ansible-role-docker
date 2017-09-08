@@ -38,3 +38,4 @@
       docker_container:
         name: "ubuntu"
         image: "ubuntu"
+        state: "present"
