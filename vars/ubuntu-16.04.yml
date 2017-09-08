@@ -27,7 +27,6 @@ _apt: [
   { state: "absent", name: "docker-engine" },
   { state: "latest", name: "dmsetup" },
   { state: "latest", name: "docker-ce" },
-  { state: "latest", name: "linux-generic-lts-xenial" },
 ]
 _pip: [
   { state: "present", name: "docker-compose" },

@@ -31,14 +31,10 @@ before_install:
   - pip install --upgrade --upgrade-strategy only-if-needed ansible docker-py docker-compose
   - docker pull $DOCKER_NAME:$DOCKER_TAG
   - docker run -itd --privileged --name docker_container $DOCKER_NAME:$DOCKER_TAG
-  - sh -c "if [ '$DOCKER_NAME' = 'ubuntu' ]; then docker exec -ti docker_container apt-get -y update; fi"
-  - sh -c "if [ '$DOCKER_NAME' = 'ubuntu' ]; then docker exec -ti docker_container apt-get -y install aptitude python; fi"
-#  - sh -c "if [ '$DOCKER_NAME' = 'centos' ]; then docker exec -ti docker_container yum -y clean expire-cache; fi"
-#  - sh -c "if [ '$DOCKER_NAME' = 'centos' ]; then docker exec -ti docker_container yum -y install epel-release python; fi"
 
 install:
   - pip install -r ansible-requirements.txt
-  - ansible-galaxy install -r tests/requirements.yml
+  - ansible-galaxy install -r requirements.yml
 
 script:
   - yamllint -c .yamllint .
