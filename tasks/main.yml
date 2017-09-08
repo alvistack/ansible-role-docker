@@ -49,7 +49,6 @@
 - name: enable service
   service:
     name: "docker"
-    state: "started"
     enabled: "yes"
   notify: restart docker
   tags: docker
