@@ -52,3 +52,15 @@
     enabled: "yes"
   notify: restart docker
   tags: docker
+
+- name: docker pull
+  docker_image:
+    "{{ item.key }}": "{{ item.value | default(None) or omit }}"
+  with_items: "{{ docker_image }}"
+  tags: docker
+
+- name: docker run
+  docker_container:
+    "{{ item.key }}": "{{ item.value | default(None) or omit }}"
+  with_dict: "{{ docker_container }}"
+  tags: docker
