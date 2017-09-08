@@ -29,13 +29,10 @@
 - hosts: all
   remote_user: root
   tasks:
-    - name: download hello-world image
-      docker_image:
-        name: "hello-world"
-        state: "present"
-
-    - name: start a container with hello-world image
+    - name: start a container with ubuntu image
       docker_container:
-        name: "hello-world"
-        image: "hello-world"
+        name: "ubuntu"
+        image: "ubuntu"
+        pull: "yes"
+        command: "sleep infinity"
         state: "started"
