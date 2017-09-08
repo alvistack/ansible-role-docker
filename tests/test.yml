@@ -38,6 +38,3 @@
       docker_container:
         name: "ubuntu"
         image: "ubuntu"
-        ignore_image: "yes"
-        recreate: "no"
-        state: "started"
