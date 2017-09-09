@@ -17,7 +17,40 @@ This role was designed for Ubuntu 16.04/14.04 or CentOS 7/6.
 Role Variables
 --------------
 
-No additional role variables.
+<table>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>parameter</th>
+<th>required</th>
+<th>default</th>
+<th>choices</th>
+<th>comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>docker_image</td>
+<td>no</td>
+<td><code>[]</code></td>
+<td></td>
+<td>Passing <code>list</code> of parameters to <a href="http://docs.ansible.com/ansible/docker_image_module.html">docker_image module</a>.</td>
+</tr>
+<tr class="even">
+<td>docker_container</td>
+<td>no</td>
+<td><code>[]</code></td>
+<td></td>
+<td>Passing <code>list</code> of parameters to <a href="http://docs.ansible.com/ansible/docker_container_module.html">docker_container module</a>.</td>
+</tr>
+</tbody>
+</table>
 
 Dependencies
 ------------
@@ -30,6 +63,10 @@ Example Playbook
     - hosts: all
       roles:
         - role: docker
+          docker_image:
+            - { state: "present", name: "ubuntu" }
+          docker_container:
+            - { state: "started", name: "ubuntu", image: "ubuntu", pull: "yes" }
 
 License
 -------
