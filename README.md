@@ -64,14 +64,14 @@ Example Playbook
       roles:
         - role: docker
           docker_image:
-            name: "ubuntu"
-            state: "present"
+            - name: "ubuntu"
+              state: "present"
           docker_container:
-            name: "ubuntu"
-            image: "ubuntu"
-            state: "started"
-            pull: "yes"
-            command: "sleep infinity"
+            - name: "ubuntu"
+              image: "ubuntu"
+              state: "started"
+              pull: "yes"
+              command: "sleep infinity"
 
 License
 -------
