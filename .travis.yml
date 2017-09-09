@@ -33,7 +33,7 @@ env:
       DOCKER_INIT=""
     - DOCKER_IMAGE="centos/systemd"
       DOCKER_TAG="latest"
-      DOCKER_OPTS="--privileged -v /var/run/docker.sock:/var/run/docker.sock -v /sys/fs/cgroup:/sys/fs/cgroup:ro"
+      DOCKER_OPTS="--privileged -v /var/run/docker.sock:/var/run/docker.sock -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run"
       DOCKER_INIT="/sbin/init"
 
 before_install:
