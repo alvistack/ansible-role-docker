@@ -24,6 +24,7 @@
     enabled: "{{ item.enabled | default(None) or omit }}"
     state: "{{ item.state | default(None) or omit }}"
   with_items: "{{ _yum_repository }}"
+  notify: restart docker
   tags: docker
 
 - name: yum install
@@ -31,4 +32,5 @@
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   with_items: "{{ _yum }}"
+  notify: restart docker
   tags: docker
