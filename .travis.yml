@@ -17,7 +17,7 @@ env:
     - ANSIBLE_FORCE_COLOR: true
     - ANSIBLE_LOG_PATH: "./ansible.log"
     - ANSIBLE_ROLES_PATH: "../"
-    - DOCKER_NAME: "$(cat /dev/urandom | base64 | head -c 8)"
+    - DOCKER_NAME: "$(date | md5sum | head -c8)"
   matrix:
     - DOCKER_IMAGE: "ubuntu"
       DOCKER_TAG: "14.04"
