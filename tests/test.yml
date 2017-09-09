@@ -24,6 +24,7 @@
   remote_user: root
   roles:
     - role: ansible-role-apt
+    - role: ansible-role-yum
     - role: ansible-role-docker
       docker_image:
         - name: "ubuntu"
