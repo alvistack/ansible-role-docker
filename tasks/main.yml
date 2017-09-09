@@ -47,14 +47,12 @@
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   with_items: "{{ _pip }}"
-  notify: restart docker
   tags: docker
 
 - name: enable service
   service:
     name: "docker"
     enabled: "yes"
-  notify: restart docker
   tags: docker
 
 - name: docker pull

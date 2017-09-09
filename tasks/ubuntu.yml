@@ -20,7 +20,6 @@
     id: "{{ item.id }}"
     state: "{{ item.state }}"
   with_items: "{{ _apt_key }}"
-  notify: restart docker
   tags: docker
 
 - name: apt-add-repository
@@ -28,7 +27,6 @@
     repo: "{{ item.repo }}"
     state: "{{ item.state }}"
   with_items: "{{ _apt_repository }}"
-  notify: restart docker
   tags: docker
 
 - name: apt-get update
@@ -42,5 +40,4 @@
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   with_items: "{{ _apt }}"
-  notify: restart docker
   tags: docker
