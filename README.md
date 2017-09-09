@@ -66,7 +66,7 @@ Example Playbook
           docker_image:
             - { state: "present", name: "ubuntu" }
           docker_container:
-            - { state: "started", name: "ubuntu", image: "ubuntu", pull: "yes" }
+            - { state: "started", name: "ubuntu", image: "ubuntu", pull: "yes", command: "sleep infinity" }
 
 License
 -------
