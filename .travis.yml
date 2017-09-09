@@ -14,32 +14,23 @@ services:
 
 env:
   global:
-    - ANSIBLE_FORCE_COLOR=true
-    - ANSIBLE_LOG_PATH="./ansible.log"
-    - ANSIBLE_ROLES_PATH="../"
-    - DOCKER_NAME="$(date | md5sum | head -c8)"
+    - ANSIBLE_FORCE_COLOR: true
+    - ANSIBLE_LOG_PATH: './ansible.log'
+    - ANSIBLE_ROLES_PATH: '../'
   matrix:
-    - DOCKER_IMAGE="ubuntu"
-      DOCKER_TAG="14.04"
-      DOCKER_OPTS="--privileged -v /var/run/docker.sock:/var/run/docker.sock"
-      DOCKER_INIT=""
-    - DOCKER_IMAGE="ubuntu"
-      DOCKER_TAG="16.04"
-      DOCKER_OPTS="--privileged -v /var/run/docker.sock:/var/run/docker.sock"
-      DOCKER_INIT=""
-    - DOCKER_IMAGE="centos"
-      DOCKER_TAG="6"
-      DOCKER_OPTS="--privileged -v /var/run/docker.sock:/var/run/docker.sock"
-      DOCKER_INIT=""
-    - DOCKER_IMAGE="centos/systemd"
-      DOCKER_TAG="latest"
-      DOCKER_OPTS="--privileged -v /var/run/docker.sock:/var/run/docker.sock -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run"
-      DOCKER_INIT=""
+    - DOCKER_NAME: 'ubuntu'
+      DOCKER_TAG: '14.04'
+    - DOCKER_NAME: 'ubuntu'
+      DOCKER_TAG: '16.04'
+    - DOCKER_NAME: 'centos'
+      DOCKER_TAG: '6'
+    - DOCKER_NAME: 'centos/systemd'
+      DOCKER_TAG: 'latest'
 
 before_install:
   - pip install --upgrade --upgrade-strategy only-if-needed ansible docker-py docker-compose
-  - docker pull $DOCKER_IMAGE:$DOCKER_TAG
-  - docker run -itd --name $DOCKER_NAME $DOCKER_OPTS $DOCKER_IMAGE:$DOCKER_TAG $DOCKER_INIT
+  - docker pull $DOCKER_NAME:$DOCKER_TAG
+  - DOCKER_ID="$(docker run -itd --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run $DOCKER_NAME:$DOCKER_TAG | head -c12)"
 
 install:
   - pip install -r ansible-requirements.txt
@@ -47,9 +38,9 @@ install:
 
 script:
   - yamllint -c .yamllint .
-  - ansible-playbook -i $DOCKER_NAME, -c docker tests/test.yml --syntax-check
-  - ansible-playbook -i $DOCKER_NAME, -c docker tests/test.yml --diff --verbose
-  - ansible-playbook -i $DOCKER_NAME, -c docker tests/test.yml --diff --verbose
+  - ansible-playbook -i $DOCKER_ID, -c docker tests/test.yml --syntax-check
+  - ansible-playbook -i $DOCKER_ID, -c docker tests/test.yml --diff --verbose
+  - ansible-playbook -i $DOCKER_ID, -c docker tests/test.yml --diff --verbose
   - tail -n 1 ansible.log | grep -Eq 'changed=0 +unreachable=0 +failed=0'
 
 notifications:
