@@ -15,26 +15,26 @@ services:
 env:
   global:
     - ANSIBLE_FORCE_COLOR: true
-    - ANSIBLE_LOG_PATH: './ansible.log'
-    - ANSIBLE_ROLES_PATH: '../'
+    - ANSIBLE_LOG_PATH: "./ansible.log"
+    - ANSIBLE_ROLES_PATH: "../"
     - DOCKER_NAME: "$(cat /dev/urandom | base64 | head -c 8)"
   matrix:
-    - DOCKER_IMAGE: 'ubuntu'
-      DOCKER_TAG: '14.04'
-      DOCKER_OPTS: '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
-      DOCKER_INIT: '/sbin/init'
-    - DOCKER_IMAGE: 'ubuntu'
-      DOCKER_TAG: '16.04'
-      DOCKER_OPTS: '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
-      DOCKER_INIT: '/lib/systemd/systemd'
-    - DOCKER_IMAGE: 'centos'
-      DOCKER_TAG: '6'
-      DOCKER_OPTS: '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
-      DOCKER_INIT: '/sbin/init'
-    - DOCKER_IMAGE: 'centos/systemd'
-      DOCKER_TAG: 'latest'
-      DOCKER_OPTS: '--privileged -v /var/run/docker.sock:/var/run/docker.sock -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run'
-      DOCKER_INIT: '/sbin/init'
+    - DOCKER_IMAGE: "ubuntu"
+      DOCKER_TAG: "14.04"
+      DOCKER_OPTS: "--privileged -v /var/run/docker.sock:/var/run/docker.sock"
+      DOCKER_INIT: "/sbin/init"
+    - DOCKER_IMAGE: "ubuntu"
+      DOCKER_TAG: "16.04"
+      DOCKER_OPTS: "--privileged -v /var/run/docker.sock:/var/run/docker.sock"
+      DOCKER_INIT: "/lib/systemd/systemd"
+    - DOCKER_IMAGE: "centos"
+      DOCKER_TAG: "6"
+      DOCKER_OPTS: "--privileged -v /var/run/docker.sock:/var/run/docker.sock"
+      DOCKER_INIT: "/sbin/init"
+    - DOCKER_IMAGE: "centos/systemd"
+      DOCKER_TAG: "latest"
+      DOCKER_OPTS: "--privileged -v /var/run/docker.sock:/var/run/docker.sock -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run"
+      DOCKER_INIT: "/sbin/init"
 
 before_install:
   - pip install --upgrade --upgrade-strategy only-if-needed ansible docker-py docker-compose
