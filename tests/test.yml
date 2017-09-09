@@ -25,14 +25,12 @@
   roles:
     - role: ansible-role-apt
     - role: ansible-role-docker
-
-- hosts: all
-  remote_user: root
-  tasks:
-    - name: start a container with ubuntu image
+      docker_image:
+        name: "ubuntu"
+        state: "present"
       docker_container:
         name: "ubuntu"
         image: "ubuntu"
+        state: "started"
         pull: "yes"
         command: "sleep infinity"
-        state: "started"
