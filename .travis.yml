@@ -25,7 +25,7 @@ env:
 
 before_install:
   - pip install --upgrade --upgrade-strategy only-if-needed ansible docker-py docker-compose
-  - docker pull $DOCKER_IMAGE:$DOCKER_TAG
+  - docker pull $DOCKER_IMAGE
   - DOCKER_ID="$(docker run -itd --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run $DOCKER_IMAGE | head -c12)"
 
 install:
