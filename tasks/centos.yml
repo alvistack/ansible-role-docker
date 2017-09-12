@@ -33,7 +33,7 @@
   with_items: "{{ _yum }}"
   tags: docker
 
-me: flush yum cache
+- name: flush yum cache
   file:
     dest: "{{ item.dest }}"
     state: "{{ item.state }}"
