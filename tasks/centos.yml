@@ -32,3 +32,12 @@
     state: "{{ item.state }}"
   with_items: "{{ _yum }}"
   tags: docker
+
+me: flush yum cache
+  file:
+    dest: "{{ item.dest }}"
+    state: "{{ item.state }}"
+  with_items:
+    - { state: "absent", dest: "/var/cache/yum" }
+  changed_when: false
+  tags: docker
