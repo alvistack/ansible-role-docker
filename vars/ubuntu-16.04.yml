@@ -27,6 +27,8 @@ _apt: [
   { state: "absent", name: "docker-engine" },
   { state: "latest", name: "dmsetup" },
   { state: "latest", name: "docker-ce" },
+  { state: "latest", name: "lvm2" },
+  { state: "latest", name: "thin-provisioning-tools" },
 ]
 _pip: [
   { state: "present", name: "docker-compose" },
