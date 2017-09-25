@@ -14,5 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Passing list of parameters to docker_image module.
+# See http://docs.ansible.com/ansible/latest/docker_image_module.html
 docker_image: []
+
+# Passing list of parameters to docker_container module.
+# See http://docs.ansible.com/ansible/latest/docker_container_module.html
 docker_container: []
