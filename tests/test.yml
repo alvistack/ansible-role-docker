@@ -22,29 +22,19 @@
   roles:
     - role: ansible-role-python
 
-# Initialize APT for Ubuntu or YUM for CentOS.
 - hosts: all
   remote_user: root
   roles:
     - role: ansible-role-apt
     - role: ansible-role-yum
-
-# Passing list of parameters to docker_image module.
-# See http://docs.ansible.com/ansible/latest/docker_image_module.html
-- hosts: all
-  remote_user: root
-  roles:
     - role: ansible-role-docker
+      # Passing list of parameters to docker_image module.
+      # See http://docs.ansible.com/ansible/latest/docker_image_module.html
       docker_image:
         - name: "ubuntu"
           state: "present"
-
-# Passing list of parameters to docker_container module.
-# See http://docs.ansible.com/ansible/latest/docker_container_module.html
-- hosts: all
-  remote_user: root
-  roles:
-    - role: ansible-role-docker
+      # Passing list of parameters to docker_container module.
+      # See http://docs.ansible.com/ansible/latest/docker_container_module.html
       docker_container:
         - name: "ubuntu"
           image: "ubuntu"
