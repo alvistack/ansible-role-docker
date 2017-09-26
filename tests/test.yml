@@ -14,21 +14,37 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Use `gather_faces: no` to initialize Python on system that not yet
+# pre-installed with Python (e.g. Ubuntu 16.04 Cloud Image and Docker Image).
 - hosts: all
   remote_user: root
   gather_facts: no
   roles:
     - role: ansible-role-python
 
+# Initialize APT for Ubuntu or YUM for CentOS.
 - hosts: all
   remote_user: root
   roles:
     - role: ansible-role-apt
     - role: ansible-role-yum
+
+# Passing list of parameters to docker_image module.
+# See http://docs.ansible.com/ansible/latest/docker_image_module.html
+- hosts: all
+  remote_user: root
+  roles:
     - role: ansible-role-docker
       docker_image:
         - name: "ubuntu"
           state: "present"
+
+# Passing list of parameters to docker_container module.
+# See http://docs.ansible.com/ansible/latest/docker_container_module.html
+- hosts: all
+  remote_user: root
+  roles:
+    - role: ansible-role-docker
       docker_container:
         - name: "ubuntu"
           image: "ubuntu"

@@ -28,18 +28,7 @@ Dependencies
 Example Playbook
 ----------------
 
-    - hosts: all
-      roles:
-        - role: docker
-          docker_image:
-            - name: "ubuntu"
-              state: "present"
-          docker_container:
-            - name: "ubuntu"
-              image: "ubuntu"
-              state: "started"
-              pull: "yes"
-              command: "sleep infinity"
+[tests/test.yml](tests/test.yml)
 
 License
 -------
