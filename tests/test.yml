@@ -45,6 +45,11 @@
 - hosts: all
   remote_user: root
   tasks:
+    - name: service docker start
+      service:
+        name: "docker"
+        enabled: "yes"
+
     - name: docker image list
       docker_image:
         name: "ubuntu"
