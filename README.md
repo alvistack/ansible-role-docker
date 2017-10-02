@@ -1,7 +1,7 @@
 Ansible Role for Docker
 =======================
 
-[![Build Status](https://travis-ci.org/alvistack/ansible-role-docker.svg?branch=master)](https://travis-ci.org/alvistack/ansible-role-docker)
+[![Travis](https://img.shields.io/travis/alvistack/ansible-role-docker.svg)](https://travis-ci.org/alvistack/ansible-role-docker)
 [![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-docker.svg)](https://github.com/alvistack/ansible-role-docker)
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-docker.svg)](https://github.com/alvistack/ansible-role-docker/blob/master/LICENSE)
 [![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.docker-blue.svg)](https://galaxy.ansible.com/alvistack/docker)

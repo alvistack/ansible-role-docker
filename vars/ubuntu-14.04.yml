@@ -32,5 +32,4 @@ _apt: [
 ]
 _pip: [
   { state: "present", name: "docker-compose" },
-  { state: "present", name: "docker-py" },
 ]

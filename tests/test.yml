@@ -41,3 +41,22 @@
           state: "started"
           pull: "yes"
           command: "sleep infinity"
+
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: service docker start
+      service:
+        name: "docker"
+        enabled: "yes"
+
+    - name: docker image list
+      docker_image:
+        name: "ubuntu"
+        state: "present"
+
+    - name: docker ps
+      docker_container:
+        name: "ubuntu"
+        image: "ubuntu"
+        state: "started"
