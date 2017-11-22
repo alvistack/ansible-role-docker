@@ -26,5 +26,6 @@ _yum: [
   { state: "latest", name: "lvm2" },
 ]
 _pip: [
+  { state: "latest", name: "docker" },
   { state: "latest", name: "docker-compose" },
 ]

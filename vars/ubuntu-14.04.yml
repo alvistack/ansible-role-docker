@@ -31,5 +31,6 @@ _apt: [
   { state: "latest", name: "thin-provisioning-tools" },
 ]
 _pip: [
+  { state: "latest", name: "docker" },
   { state: "latest", name: "docker-compose" },
 ]
