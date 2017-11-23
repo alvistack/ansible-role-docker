@@ -6,14 +6,14 @@ Ansible Role for Docker
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-docker.svg)](https://github.com/alvistack/ansible-role-docker/blob/master/LICENSE)
 [![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.docker-blue.svg)](https://galaxy.ansible.com/alvistack/docker)
 
-Ansible Role for Docker CE Installation.
+Ansible Role for Docker Installation.
 
 Requirements
 ------------
 
 This role require Ansible 2.4 or higher.
 
-This role was designed for Ubuntu 16.04/14.04 or RHEL/CentOS 7.
+This role was designed for Ubuntu 16.04/14.04 or RHEL/CentOS 7/6.
 
 Role Variables
 --------------

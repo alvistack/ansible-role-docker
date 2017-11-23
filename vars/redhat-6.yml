@@ -14,21 +14,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-galaxy_info:
-  author: Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
-  description: Ansible Role for Docker Installation
-  company: PantaRei Design
-  license: Apache License 2.0
-  min_ansible_version: 2.4
-  platforms:
-    - name: Ubuntu
-      versions:
-        - trusty
-        - xenial
-    - name: EL
-      versions:
-        - 6
-        - 7
-  galaxy_tags:
-    - system
-dependencies: []
+_yum_repository: [
+]
+_yum: [
+  { state: "latest", name: "device-mapper-persistent-data" },
+  { state: "latest", name: "docker-io" },
+  { state: "latest", name: "lvm2" },
+]
+_pip: [
+  { state: "absent", name: "docker" },
+  { version: "1.10.6", name: "docker-py" },
+  { version: "1.9.0", name: "docker-compose" },
+]
