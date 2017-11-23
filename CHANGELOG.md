@@ -6,6 +6,9 @@ Ansible Role for Docker
 
 ### Major Changes
 
+-   Install Docker CE on Ubuntu 16.04/14.04 from official repository
+-   Install Docker CE on CentOS 7 from official repository
+-   Install Docker IO on CentOS 6 from stock package
 -   Ensure docker-compose install with correct version
 -   Update test cases
 
