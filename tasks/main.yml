@@ -46,8 +46,9 @@
 
 - name: pip install
   pip:
-    name: "{{ item.name }}"
-    state: "{{ item.state }}"
+    name: "{{ item.name | default(None) or omit }}"
+    state: "{{ item.state | default(None) or omit }}"
+    version: "{{ item.version | default(None) or omit }}"
   with_items: "{{ _pip }}"
   tags: docker
 
