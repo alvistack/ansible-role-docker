@@ -19,9 +19,9 @@ _apt_key: [
   { state: "present", id: "0EBFCD88", url: "https://download.docker.com/linux/ubuntu/gpg" },
 ]
 _apt_repository: [
-  { state: "absent", repo: "deb https://apt.dockerproject.org/repo/ ubuntu-trusty main" },
-  { state: "absent", repo: "deb https://download.docker.com/linux/ubuntu trusty stable"},
-  { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu trusty stable"},
+  { state: "absent", repo: "deb https://apt.dockerproject.org/repo/ ubuntu-artful main" },
+  { state: "absent", repo: "deb https://download.docker.com/linux/ubuntu artful edge"},
+  { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu artful edge"},
 ]
 _apt: [
   { state: "absent", name: "docker" },
