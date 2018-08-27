@@ -6,7 +6,10 @@ Ansible Role for Docker
 
 ### Major Changes
 
--   Add Ubuntu 17.10 and 18.04 support
+-   Upgrade Ansible support to 2.6 or higher
+-   Remove Ubuntu 14.04 support
+-   Add Ubuntu 18.04 support
+-   Keep APT/YUM cache as-is
 
 1.1.0 - 2017-11-23
 ------------------
