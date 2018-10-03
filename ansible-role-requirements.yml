@@ -1,0 +1,13 @@
+---
+
+- src: https://github.com/alvistack/ansible-role-python
+  version: develop
+  name: python
+
+- src: https://github.com/alvistack/ansible-role-apt
+  version: develop
+  name: apt
+
+- src: https://github.com/alvistack/ansible-role-yum
+  version: develop
+  name: yum
