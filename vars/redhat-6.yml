@@ -21,7 +21,3 @@ _yum: [
   { state: "latest", name: "docker-io" },
   { state: "latest", name: "lvm2" },
 ]
-_pip: [
-  { state: "absent", name: "docker" },
-  { version: "1.10.6", name: "docker-py" },
-]

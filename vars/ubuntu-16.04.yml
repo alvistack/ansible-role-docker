@@ -27,12 +27,5 @@ _apt: [
   { state: "absent", name: "docker" },
   { state: "absent", name: "docker-engine" },
   { state: "absent", name: "docker.io" },
-  { state: "latest", name: "dmsetup" },
   { state: "latest", name: "docker-ce" },
-  { state: "latest", name: "lvm2" },
-  { state: "latest", name: "thin-provisioning-tools" },
-]
-_pip: [
-  { state: "absent", name: "docker-py" },
-  { state: "latest", name: "docker" },
 ]

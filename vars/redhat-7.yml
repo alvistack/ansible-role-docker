@@ -21,11 +21,5 @@ _yum: [
   { state: "absent", name: "docker" },
   { state: "absent", name: "docker-common" },
   { state: "absent", name: "docker-engine" },
-  { state: "latest", name: "device-mapper-persistent-data" },
   { state: "latest", name: "docker-ce" },
-  { state: "latest", name: "lvm2" },
-]
-_pip: [
-  { state: "absent", name: "docker-py" },
-  { state: "latest", name: "docker" },
 ]

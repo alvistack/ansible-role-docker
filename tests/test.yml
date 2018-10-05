@@ -28,35 +28,25 @@
     - role: apt
     - role: yum
     - role: docker
-      # Passing list of parameters to docker_image module.
-      # See http://docs.ansible.com/ansible/latest/docker_image_module.html
-      docker_image:
-        - name: "ubuntu"
-          state: "present"
-      # Passing list of parameters to docker_container module.
-      # See http://docs.ansible.com/ansible/latest/docker_container_module.html
-      docker_container:
-        - name: "ubuntu"
-          image: "ubuntu"
-          state: "started"
-          pull: "yes"
-          command: "sleep infinity"
 
 - hosts: all
   remote_user: root
   tasks:
-    - name: service docker start
-      service:
-        name: "docker"
-        enabled: "yes"
+    - name: docker version
+      shell: |
+        docker version
+      register: docker_version_result
+      changed_when: docker_version_result.rc != 0
 
     - name: docker image list
       docker_image:
         name: "ubuntu"
         state: "present"
 
-    - name: docker ps
+    - name: docker run
       docker_container:
         name: "ubuntu"
         image: "ubuntu"
         state: "started"
+        pull: "yes"
+        command: "sleep infinity"

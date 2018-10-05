@@ -10,6 +10,7 @@ Ansible Role for Docker
 -   Remove Ubuntu 14.04 support
 -   Add Ubuntu 18.04 support
 -   Keep APT/YUM cache as-is
+-   Simplify role duty to just handling installation
 
 1.1.0 - 2017-11-23
 ------------------
