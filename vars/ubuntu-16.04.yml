@@ -29,3 +29,7 @@ _apt: [
   { state: "absent", name: "docker.io" },
   { state: "latest", name: "docker-ce" },
 ]
+_pip: [
+  { state: "absent", name: "docker-py" },
+  { state: "latest", name: "docker" },
+]
