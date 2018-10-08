@@ -51,9 +51,3 @@
     version: "{{ item.version | default(None) or omit }}"
   with_items: "{{ _pip }}"
   tags: docker
-
-- name: enable service
-  service:
-    name: "docker"
-    enabled: "yes"
-  tags: docker

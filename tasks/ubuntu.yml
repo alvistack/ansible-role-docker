@@ -41,3 +41,9 @@
     state: "{{ item.state }}"
   with_items: "{{ _apt }}"
   tags: docker
+
+- name: enable service
+  service:
+    name: "docker"
+    enabled: "yes"
+  tags: docker

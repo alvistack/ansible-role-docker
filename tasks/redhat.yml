@@ -32,3 +32,9 @@
     state: "{{ item.state }}"
   with_items: "{{ _yum }}"
   tags: docker
+
+- name: enable service
+  service:
+    name: "docker"
+    enabled: "yes"
+  tags: docker
