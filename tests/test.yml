@@ -32,19 +32,6 @@
 - hosts: all
   remote_user: root
   tasks:
-    - name: start service (Ubuntu)
-      shell: |
-        service docker start
-      register: service_start_result
-      changed_when: service_start_result.rc != 0
-      when: ansible_distribution | lower == 'ubuntu'
-
-    - name: start service (CentOS)
-      service:
-        name: "docker"
-        state: "started"
-      when: ansible_distribution | lower == 'centos'
-
     - name: docker version
       shell: |
         docker version
