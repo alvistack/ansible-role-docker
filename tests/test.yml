@@ -32,6 +32,11 @@
 - hosts: all
   remote_user: root
   tasks:
+    - name: start service
+      service:
+        name: "docker"
+        state: "started"
+
     - name: docker version
       shell: |
         docker version
