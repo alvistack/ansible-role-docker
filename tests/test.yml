@@ -33,9 +33,10 @@
   remote_user: root
   tasks:
     - name: start service (Ubuntu)
-      service:
-        name: "docker"
-        state: "started"
+      shell: |
+        service docker start
+      register: service_start_result
+      changed_when: service_start_result.rc != 0
       when: ansible_distribution | lower == 'ubuntu'
 
     - name: start service (CentOS)
