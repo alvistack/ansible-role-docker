@@ -16,7 +16,7 @@
 
 _yum_repository: [
   {
-    file: "docker-ce"
+    file: "docker-ce",
     name: "docker-ce-stable",
     description: "Docker CE Stable - $basearch",
     baseurl: "https://download.docker.com/linux/centos/7/$basearch/stable",
