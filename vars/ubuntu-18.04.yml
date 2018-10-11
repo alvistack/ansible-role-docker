@@ -28,6 +28,8 @@ _apt: [
   { state: "absent", name: "docker-engine" },
   { state: "absent", name: "docker.io" },
   { state: "latest", name: "docker-ce" },
+  { state: "latest", name: "systemd" },
+  { state: "latest", name: "systemd-sysv" },
 ]
 _pip: [
   { state: "absent", name: "docker-py" },
