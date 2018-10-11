@@ -14,12 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_yum: [
-  { state: "latest", name: "device-mapper-persistent-data" },
-  { state: "latest", name: "docker-io" },
-  { state: "latest", name: "lvm2" },
-]
-_pip: [
-  { state: "absent", name: "docker" },
-  { version: "1.10.6", name: "docker-py" },
-]
+- name: yum install
+  yum:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items: "{{ _yum }}"
+  tags: docker
+
+- name: enable service
+  shell: |
+    chkconfig docker on
+  args:
+    warn: false
+  register: chkconfig_on_result
+  changed_when: chkconfig_on_result.rc != 0
+  tags: docker
