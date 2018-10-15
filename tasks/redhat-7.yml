@@ -35,7 +35,7 @@
 
 - name: enable service
   shell: |
-    systemctl enable docker
+    systemctl --force enable docker
   args:
     warn: false
   register: systemctl_enable_result
