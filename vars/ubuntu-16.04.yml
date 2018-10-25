@@ -19,7 +19,7 @@ _apt_key: [
   { state: "present", id: "0EBFCD88", url: "https://download.docker.com/linux/ubuntu/gpg" },
 ]
 _apt_repository: [
-  { state: "absent", repo: "deb https://apt.dockerproject.org/repo/ ubuntu-xenial main" },
+  { state: "absent", repo: "deb https://apt.dockerproject.org/repo ubuntu-xenial main" },
   { state: "absent", repo: "deb https://download.docker.com/linux/ubuntu xenial stable"},
   { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"},
 ]
@@ -27,13 +27,9 @@ _apt: [
   { state: "absent", name: "docker" },
   { state: "absent", name: "docker-engine" },
   { state: "absent", name: "docker.io" },
-  { state: "latest", name: "dmsetup" },
   { state: "latest", name: "docker-ce" },
-  { state: "latest", name: "lvm2" },
-  { state: "latest", name: "thin-provisioning-tools" },
 ]
 _pip: [
   { state: "absent", name: "docker-py" },
-  { state: "present", name: "docker" },
-  { state: "latest", name: "docker-compose" },
+  { state: "latest", name: "docker" },
 ]

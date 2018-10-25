@@ -14,19 +14,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_apt_key: []
-_apt_repository: []
+_apt_key: [
+  { state: "absent", id: "2C52609D", url: "https://yum.dockerproject.org/gpg" },
+  { state: "present", id: "0EBFCD88", url: "https://download.docker.com/linux/ubuntu/gpg" },
+]
+_apt_repository: [
+  { state: "absent", repo: "deb https://apt.dockerproject.org/repo ubuntu-bionic main" },
+  { state: "absent", repo: "deb https://download.docker.com/linux/ubuntu bionic stable"},
+  { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"},
+]
 _apt: [
   { state: "absent", name: "docker" },
-  { state: "absent", name: "docker-ce" },
   { state: "absent", name: "docker-engine" },
-  { state: "latest", name: "dmsetup" },
-  { state: "latest", name: "docker.io" },
-  { state: "latest", name: "lvm2" },
-  { state: "latest", name: "thin-provisioning-tools" },
+  { state: "absent", name: "docker.io" },
+  { state: "latest", name: "docker-ce" },
 ]
 _pip: [
   { state: "absent", name: "docker-py" },
-  { state: "present", name: "docker" },
-  { state: "latest", name: "docker-compose" },
+  { state: "latest", name: "docker" },
 ]

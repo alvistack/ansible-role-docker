@@ -15,18 +15,23 @@
 # limitations under the License.
 
 _yum_repository: [
-  { state: "present", name: "docker-ce-stable", description: "Docker CE Stable - $basearch", baseurl: "https://download.docker.com/linux/centos/7/$basearch/stable", enabled: "yes", gpgcheck: "yes", gpgkey: "https://download.docker.com/linux/centos/gpg" },
+  {
+    file: "docker-ce",
+    name: "docker-ce-stable",
+    description: "Docker CE Stable - $basearch",
+    baseurl: "https://download.docker.com/linux/centos/7/$basearch/stable",
+    gpgcheck: "yes",
+    gpgkey: "https://download.docker.com/linux/centos/gpg",
+    enabled: "yes",
+  },
 ]
 _yum: [
   { state: "absent", name: "docker" },
   { state: "absent", name: "docker-common" },
   { state: "absent", name: "docker-engine" },
-  { state: "latest", name: "device-mapper-persistent-data" },
   { state: "latest", name: "docker-ce" },
-  { state: "latest", name: "lvm2" },
 ]
 _pip: [
   { state: "absent", name: "docker-py" },
-  { state: "present", name: "docker" },
-  { state: "latest", name: "docker-compose" },
+  { state: "latest", name: "docker" },
 ]

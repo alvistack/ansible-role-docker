@@ -16,13 +16,13 @@
 
 - name: yum-config-manager --add-repo
   yum_repository:
-    name: "{{ item.name | default(None) or omit }}"
-    description: "{{ item.description | default(None) or omit }}"
-    baseurl: "{{ item.baseurl | default(None) or omit }}"
-    gpgcheck: "{{ item.gpgcheck | default(None) or omit }}"
-    gpgkey: "{{ item.gpgkey | default(None) or omit }}"
-    enabled: "{{ item.enabled | default(None) or omit }}"
-    state: "{{ item.state | default(None) or omit }}"
+    file: "{{ item.file }}"
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    baseurl: "{{ item.baseurl }}"
+    gpgcheck: "{{ item.gpgcheck }}"
+    gpgkey: "{{ item.gpgkey }}"
+    enabled: "{{ item.enabled }}"
   with_items: "{{ _yum_repository }}"
   tags: docker
 
@@ -33,8 +33,11 @@
   with_items: "{{ _yum }}"
   tags: docker
 
-- name: yum -y clean all
+- name: enable service
   shell: |
-    yum -y clean all
-  changed_when: false
+    systemctl --force enable docker
+  args:
+    warn: false
+  register: systemctl_enable_result
+  changed_when: systemctl_enable_result.rc != 0
   tags: docker
