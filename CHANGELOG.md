@@ -1,14 +1,14 @@
 # Ansible Role for Docker
 
-## 1.2.0 - TBC
+## 2.0.0 - 2018-10-25
 
 ### Major Changes
 
   - Upgrade Ansible support to 2.6 or higher
-  - Remove Ubuntu 14.04 support
-  - Add Ubuntu 18.04 support
+  - Support both Ubuntu 16.04/18.04 and RHEL/CentOS 6/7
+  - Remove support for optional `docker_image` and `docker_container`
   - Keep APT/YUM cache as-is
-  - Simplify role duty to just handling installation
+  - Update Travis CI test plan
 
 ## 1.1.0 - 2017-11-23
 
