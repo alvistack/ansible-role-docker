@@ -42,11 +42,3 @@
       docker_image:
         name: "ubuntu"
         state: "present"
-
-    - name: docker_container
-      docker_container:
-        name: "ubuntu"
-        image: "ubuntu"
-        state: "started"
-        pull: "yes"
-        command: "sleep infinity"
