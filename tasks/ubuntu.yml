@@ -27,13 +27,6 @@
     repo: "{{ item.repo }}"
     state: "{{ item.state }}"
   with_items: "{{ _apt_repository }}"
-  register: apt_repository_result
-  tags: docker
-
-- name: apt-get update
-  apt:
-    update_cache: "yes"
-  when: apt_repository_result is changed
   tags: docker
 
 - name: apt-get install
