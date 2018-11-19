@@ -22,10 +22,7 @@
   tags: docker
 
 - name: enable service
-  shell: |
-    chkconfig docker on
-  args:
-    warn: false
+  command: chkconfig docker on
   register: chkconfig_on_result
   changed_when: chkconfig_on_result.rc != 0
   tags: docker

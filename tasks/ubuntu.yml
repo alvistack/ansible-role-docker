@@ -37,10 +37,7 @@
   tags: docker
 
 - name: enable service
-  shell: |
-    systemctl --force enable docker
-  args:
-    warn: false
+  command: systemctl --force enable docker
   register: systemctl_enable_result
   changed_when: systemctl_enable_result.rc != 0
   tags: docker
