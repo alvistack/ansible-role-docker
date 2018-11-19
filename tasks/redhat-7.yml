@@ -15,15 +15,12 @@
 # limitations under the License.
 
 - name: yum-config-manager --add-repo
-  yum_repository:
-    file: "{{ item.file }}"
-    name: "{{ item.name }}"
-    description: "{{ item.description }}"
-    baseurl: "{{ item.baseurl }}"
-    gpgcheck: "{{ item.gpgcheck }}"
-    gpgkey: "{{ item.gpgkey }}"
-    enabled: "{{ item.enabled }}"
-  with_items: "{{ _yum_repository }}"
+  shell: |
+    yum-config-manager \
+      --add-repo \
+      https://download.docker.com/linux/centos/docker-ce.repo
+  args:
+    creates: "/etc/yum.repos.d/docker-ce.repo"
   tags: docker
 
 - name: yum install
@@ -34,10 +31,7 @@
   tags: docker
 
 - name: enable service
-  shell: |
-    systemctl --force enable docker
-  args:
-    warn: false
+  command: systemctl --force enable docker
   register: systemctl_enable_result
   changed_when: systemctl_enable_result.rc != 0
   tags: docker
