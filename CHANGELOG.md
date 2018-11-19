@@ -2,8 +2,12 @@
 
 ## 2.1.0 - TBC
 
+### Major Changes
+
   - Don't test with docker\_container
   - CI with ansible-lint and galaxy-lint-rules
+  - Use shell only when shell functionality is required
+  - Enable repo with official procedure on CentOS 7
 
 ## 2.0.0 - 2018-10-25
 

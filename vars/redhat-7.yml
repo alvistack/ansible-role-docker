@@ -14,17 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_yum_repository: [
-  {
-    file: "docker-ce",
-    name: "docker-ce-stable",
-    description: "Docker CE Stable - $basearch",
-    baseurl: "https://download.docker.com/linux/centos/7/$basearch/stable",
-    gpgcheck: "yes",
-    gpgkey: "https://download.docker.com/linux/centos/gpg",
-    enabled: "yes",
-  },
-]
 _yum: [
   { state: "absent", name: "docker" },
   { state: "absent", name: "docker-common" },
