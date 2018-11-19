@@ -22,5 +22,4 @@ _yum: [
 _pip: [
   { state: "absent", name: "docker" },
   { version: "1.10.6", name: "docker-py" },
-  { state: "latest", name: "docker-compose" },
 ]

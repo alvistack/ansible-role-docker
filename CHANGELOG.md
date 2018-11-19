@@ -8,7 +8,6 @@
   - CI with ansible-lint and galaxy-lint-rules
   - Use shell only when shell functionality is required
   - Enable repo with official procedure on CentOS 7
-  - Add docker-compose
 
 ## 2.0.0 - 2018-10-25
 
