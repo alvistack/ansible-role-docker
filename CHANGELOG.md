@@ -10,6 +10,7 @@
   - Enable repo with official procedure on CentOS 7
   - Replace tests from Docker to LXD
   - Ignore modprobe failures in ExecStartPre (systemd unit) (<https://github.com/containerd/containerd/pull/2776>)
+  - Drop CentOS 6 support
 
 ## 2.0.0 - 2018-10-25
 
