@@ -8,7 +8,7 @@ env:
   matrix:
     - LXC_IMAGE: 'images:ubuntu/16.04'
     - LXC_IMAGE: 'images:ubuntu/18.04'
-    - LXC_IMAGE: 'images:centos/6'
+#    - LXC_IMAGE: 'images:centos/6'
     - LXC_IMAGE: 'images:centos/7'
 
 before_install:
