@@ -33,11 +33,9 @@
   remote_user: root
   tasks:
     - name: start service
-      command: service docker start
-      args:
-        warn: false
-      register: service_start_result
-      changed_when: service_start_result.rc != 0
+      service:
+        name: docker
+        state: started
 
     - name: docker version
       command: docker version

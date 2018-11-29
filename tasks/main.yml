@@ -65,16 +65,15 @@
   tags: docker
 
 - name: systemctl daemon-reload
-  command: systemctl daemon-reload
-  when: lineinfile_result is changed
-  register: systemctl_daemon_reload_result
-  changed_when: systemctl_daemon_reload_result.rc != 0
+  systemd:
+    name: docker
+    daemon_reload: yes
   tags: docker
 
 - name: enable service
-  command: systemctl --force enable docker
-  register: systemctl_enable_result
-  changed_when: systemctl_enable_result.rc != 0
+  service:
+    name: docker
+    enabled: yes
   tags: docker
 
 - name: pip install
