@@ -55,6 +55,17 @@
     - { dest: "/etc/docker/daemon.json" }
   tags: docker
 
+- name: prepare files
+  file:
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0644') }}"
+    state: "{{ item.state | default('file') }}"
+  with_items:
+    - { dest: "/etc/systemd/system/docker.service.d", mode: "0755", state: "directory" }
+  tags: docker
+
 - name: patch /lib/systemd/system/containerd.service
   lineinfile:
     path: "/lib/systemd/system/containerd.service"
