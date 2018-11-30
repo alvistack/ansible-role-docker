@@ -36,6 +36,7 @@
       service:
         name: docker
         state: started
+      changed_when: false
 
     - name: docker version
       command: docker version

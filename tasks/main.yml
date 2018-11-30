@@ -86,6 +86,7 @@
   service:
     name: docker
     enabled: yes
+  changed_when: false
   tags: docker
 
 - name: pip install
