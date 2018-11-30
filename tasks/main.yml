@@ -44,6 +44,18 @@
     loop_var: "loop_var"
   tags: docker
 
+- name: prepare files
+  file:
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0644') }}"
+    state: "{{ item.state | default('file') }}"
+  with_items:
+    - { dest: "/etc/docker", mode: "0755", state: "directory" }
+    - { dest: "/etc/systemd/system/docker.service.d", mode: "0755", state: "directory" }
+  tags: docker
+
 - name: copy templates
   template:
     src: "./templates{{ item.dest }}.j2"
@@ -53,17 +65,6 @@
     mode: "{{ item.mode | default('0644') }}"
   with_items:
     - { dest: "/etc/docker/daemon.json" }
-  tags: docker
-
-- name: prepare files
-  file:
-    dest: "{{ item.dest }}"
-    owner: "{{ item.owner | default('root') }}"
-    group: "{{ item.group | default('root') }}"
-    mode: "{{ item.mode | default('0644') }}"
-    state: "{{ item.state | default('file') }}"
-  with_items:
-    - { dest: "/etc/systemd/system/docker.service.d", mode: "0755", state: "directory" }
   tags: docker
 
 - name: patch /lib/systemd/system/containerd.service
