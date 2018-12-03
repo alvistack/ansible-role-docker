@@ -44,6 +44,51 @@
     loop_var: "loop_var"
   tags: docker
 
+- name: prepare directories
+  file:
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0755') }}"
+    state: "{{ item.state | default('directory') }}"
+  with_items:
+    - { dest: "/etc/docker" }
+    - { dest: "/etc/systemd/system/docker.service.d" }
+  tags: docker
+
+- name: copy templates
+  template:
+    src: "./templates{{ item.dest }}.j2"
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0644') }}"
+  with_items:
+    - { dest: "/etc/docker/daemon.json" }
+  tags: docker
+
+- name: patch /lib/systemd/system/containerd.service
+  lineinfile:
+    path: "/lib/systemd/system/containerd.service"
+    regexp: "^ExecStartPre=-*/sbin/modprobe overlay"
+    line: "ExecStartPre=-/sbin/modprobe overlay"
+    state: present
+  register: lineinfile_result
+  tags: docker
+
+- name: systemctl daemon-reload
+  systemd:
+    name: docker
+    daemon_reload: yes
+  tags: docker
+
+- name: enable service
+  service:
+    name: docker
+    enabled: yes
+  changed_when: false
+  tags: docker
+
 - name: pip install
   pip:
     name: "{{ item.name | default(None) or omit }}"
