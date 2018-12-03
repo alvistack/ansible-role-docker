@@ -44,16 +44,16 @@
     loop_var: "loop_var"
   tags: docker
 
-- name: prepare files
+- name: prepare directories
   file:
     dest: "{{ item.dest }}"
     owner: "{{ item.owner | default('root') }}"
     group: "{{ item.group | default('root') }}"
-    mode: "{{ item.mode | default('0644') }}"
-    state: "{{ item.state | default('file') }}"
+    mode: "{{ item.mode | default('0755') }}"
+    state: "{{ item.state | default('directory') }}"
   with_items:
-    - { dest: "/etc/docker", mode: "0755", state: "directory" }
-    - { dest: "/etc/systemd/system/docker.service.d", mode: "0755", state: "directory" }
+    - { dest: "/etc/docker" }
+    - { dest: "/etc/systemd/system/docker.service.d" }
   tags: docker
 
 - name: copy templates

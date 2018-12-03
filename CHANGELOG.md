@@ -12,7 +12,6 @@
   - Ignore modprobe failures in ExecStartPre (systemd unit) (<https://github.com/containerd/containerd/pull/2776>)
   - Drop CentOS 6 support
   - Template `/etc/docker/daemon.json` for Kubernetes
-  - Reduce kernel logging level during CI
 
 ## 2.0.0 - 2018-10-25
 
