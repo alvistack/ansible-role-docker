@@ -95,4 +95,6 @@
     state: "{{ item.state | default(None) or omit }}"
     version: "{{ item.version | default(None) or omit }}"
   with_items: "{{ _pip }}"
+  register: result
+  until: result is succeeded
   tags: docker
