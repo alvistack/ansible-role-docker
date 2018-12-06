@@ -20,8 +20,8 @@ _apt_key: [
 ]
 _apt_repository: [
   { state: "absent", repo: "deb https://apt.dockerproject.org/repo ubuntu-xenial main" },
-  { state: "absent", repo: "deb https://download.docker.com/linux/ubuntu xenial stable"},
-  { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"},
+  { state: "absent", repo: "deb https://download.docker.com/linux/ubuntu xenial stable" },
+  { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable" },
 ]
 _apt: [
   { state: "absent", name: "docker" },
