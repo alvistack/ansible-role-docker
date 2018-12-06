@@ -87,6 +87,7 @@
     name: docker
     enabled: yes
   changed_when: false
+  ignore_errors: yes
   tags: docker
 
 - name: pip install
