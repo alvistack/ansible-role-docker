@@ -80,6 +80,7 @@
   systemd:
     name: docker
     daemon_reload: yes
+  when: lineinfile_result is changed
   tags: docker
 
 - name: enable service
