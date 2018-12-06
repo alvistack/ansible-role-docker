@@ -1,17 +1,26 @@
 # Ansible Role for Docker
 
-## 2.1.0 - TBC
+## 2.2.0 - TBC
 
 ### Major Changes
 
-  - Don't test with docker\_container
-  - CI with ansible-lint and galaxy-lint-rules
+## 2.1.0 - 2018-12-06
+
+### Major Changes
+
+  - CI with yamllint, ansible-lint and ansible-playbook --syntax-check
+  - CI with LXD, improve systemd support
   - Use shell only when shell functionality is required
-  - Enable repo with official procedure on CentOS 7
-  - Replace tests from Docker to LXD
   - Ignore modprobe failures in ExecStartPre (systemd unit) (<https://github.com/containerd/containerd/pull/2776>)
-  - Drop CentOS 6 support
   - Template `/etc/docker/daemon.json` for Kubernetes
+
+### CentOS 6
+
+  - Drop support
+
+### CentOS 7
+
+  - Enable repo with official procedure
 
 ## 2.0.0 - 2018-10-25
 

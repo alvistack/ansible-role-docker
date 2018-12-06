@@ -21,6 +21,9 @@
       https://download.docker.com/linux/centos/docker-ce.repo
   args:
     creates: "/etc/yum.repos.d/docker-ce.repo"
+  register: result
+  until: result is succeeded
+  changed_when: result is not succeeded
   tags: docker
 
 - name: yum install
@@ -28,4 +31,6 @@
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   with_items: "{{ _yum }}"
+  register: result
+  until: result is succeeded
   tags: docker

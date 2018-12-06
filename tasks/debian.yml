@@ -20,6 +20,8 @@
     id: "{{ item.id }}"
     state: "{{ item.state }}"
   with_items: "{{ _apt_key }}"
+  register: result
+  until: result is succeeded
   tags: docker
 
 - name: apt-add-repository
@@ -34,4 +36,6 @@
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   with_items: "{{ _apt }}"
+  register: result
+  until: result is succeeded
   tags: docker
