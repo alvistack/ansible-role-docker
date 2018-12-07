@@ -81,6 +81,8 @@
     name: docker
     daemon_reload: yes
   when: lineinfile_result is changed
+  changed_when: false
+  ignore_errors: yes
   tags: docker
 
 - name: enable service
