@@ -37,6 +37,7 @@
         name: docker
         state: started
       changed_when: false
+      ignore_errors: yes
 
     - name: docker version
       command: docker version
