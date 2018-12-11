@@ -80,7 +80,9 @@
   systemd:
     name: docker
     daemon_reload: yes
-  when: lineinfile_result is changed
+  when:
+    - ansible_service_mgr == 'systemd'
+    - lineinfile_result is changed
   changed_when: false
   ignore_errors: yes
   tags: docker
