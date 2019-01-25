@@ -1,8 +1,16 @@
 # Ansible Role for Docker
 
-## 2.2.0 - TBC
+## 2.3.0 - TBC
 
 ### Major Changes
+
+## 2.2.0 - 2019-01-25
+
+### Major Changes
+
+  - Bugfix /lib/systemd/system/containerd.service with template
+  - Use handler for `systemctl daemon-reload`
+  - Rollback to default `native.cgroupdriver=cgroupfs`
 
 ## 2.1.0 - 2018-12-06
 
