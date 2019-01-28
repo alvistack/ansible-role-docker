@@ -18,7 +18,6 @@
   remote_user: root
   roles:
     - role: python
-    - role: apt
     - role: yum
     - role: docker
 
