@@ -1,4 +1,4 @@
-#!/bin/bash
+---
 
 # (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
 #
@@ -14,17 +14,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set -o xtrace
+- hosts: all
+  remote_user: root
+  roles:
+    - role: python
+    - role: yum
+    - role: docker
 
-cd "$(cd "$(dirname "$0")"; pwd -P)/../"
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: start service
+      service:
+        name: docker
+        state: started
+      changed_when: false
+      ignore_errors: true
 
-export ANSIBLE_FORCE_COLOR=true
-export ANSIBLE_LOG_PATH="$PWD/ansible.log"
-export ANSIBLE_ROLES_PATH="$HOME/.ansible/roles"
+    - name: docker version
+      command: docker version
+      register: result
+      changed_when: result is not succeeded
 
-export LXC_IMAGE=${LXC_IMAGE:-"ubuntu/bionic/amd64"}
-export LXC_ID=${LXC_ID:-"$(cat /dev/urandom | tr -dc a-z | head -c1)$(cat /dev/urandom | tr -dc a-z0-9 | head -c11)"}
-
-export MOLECULE_SCENARIO_NAME=${MOLECULE_SCENARIO_NAME:-"default"}
-
-molecule test -s $MOLECULE_SCENARIO_NAME
+    - name: docker_image
+      docker_image:
+        name: "hello-world"
+        state: "present"
+      register: result
+      until: result is succeeded
