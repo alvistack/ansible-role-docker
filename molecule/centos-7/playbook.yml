@@ -17,8 +17,6 @@
 - hosts: all
   remote_user: root
   roles:
-    - role: python
-    - role: yum
     - role: docker
 
 - hosts: all
@@ -36,9 +34,7 @@
       register: result
       changed_when: result is not succeeded
 
-    - name: docker_image
-      docker_image:
-        name: "hello-world"
-        state: "present"
+    - name: docker pull hello-world
+      command: docker pull hello-world
       register: result
-      until: result is succeeded
+      changed_when: result is not succeeded
