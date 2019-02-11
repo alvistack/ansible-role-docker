@@ -21,6 +21,7 @@
       --add-repo \
       https://download.docker.com/linux/centos/docker-ce.repo
   args:
+    executable: /bin/bash
     creates: "/etc/yum.repos.d/docker-ce.repo"
   register: result
   until: result is succeeded
