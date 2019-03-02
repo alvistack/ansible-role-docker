@@ -14,28 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- hosts: all
-  remote_user: root
-  roles:
-    - role: bootstrap
-    - role: docker
-
-- hosts: all
-  remote_user: root
-  tasks:
-    - name: start service
-      service:
-        name: docker
-        state: started
-      changed_when: false
-      ignore_errors: true
-
-    - name: docker version
-      command: docker version
-      register: result
-      changed_when: result is not succeeded
-
-    - name: docker pull hello-world
-      command: docker pull hello-world
-      register: result
-      changed_when: result is not succeeded
+- name: bootstrap
+  src: https://github.com/alvistack/ansible-role-bootstrap
+  version: develop
