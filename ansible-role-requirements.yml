@@ -14,32 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-scenario:
-  name: suse-42
-driver:
-  name: lxd
-platforms:
-  - name: ${LXC_ID}-1
-    url: unix:/var/snap/lxd/common/lxd/unix.socket
-    source:
-      server: https://images.linuxcontainers.org
-      protocol: simplestreams
-      alias: opensuse/42.3/amd64
-lint:
-  name: yamllint
-dependency:
-  name: galaxy
-  options:
-    role-file: ansible-role-requirements.yml
-    roles-path: ${ANSIBLE_ROLES_PATH}
-    ignore-errors: true
-provisioner:
-  name: ansible
-  env:
-    ANSIBLE_ROLES_PATH: ${ANSIBLE_ROLES_PATH}
-  lint:
-    name: ansible-lint
-verifier:
-  name: testinfra
-  lint:
-    name: flake8
+- name: bootstrap
+  src: https://github.com/alvistack/ansible-role-bootstrap
+  version: develop
