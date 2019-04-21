@@ -1,13 +1,1 @@
-{
-    "exec-opts": [
-        "native.cgroupdriver=cgroupfs"
-    ],
-    "log-driver": "json-file",
-    "log-opts": {
-        "max-size": "100m"
-    },
-    "storage-driver": "overlay2",
-    "storage-opts": [
-        "overlay2.override_kernel_check=true"
-    ]
-}
+{{ docker_options | to_nice_json }}
