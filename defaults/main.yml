@@ -18,7 +18,7 @@
 # See https://docs.docker.com/config/daemon/#configure-the-docker-daemon
 docker_options:
   exec-opts:
-    - "native.cgroupdriver=cgroupfs"
+    - "native.cgroupdriver=systemd"
   log-driver: "json-file"
   log-opts:
     max-size: "100m"
