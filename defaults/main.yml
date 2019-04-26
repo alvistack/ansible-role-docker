@@ -16,12 +16,4 @@
 
 # Structured data passing to `/etc/docker/daemon.json` with `to_nice_json`.
 # See https://docs.docker.com/config/daemon/#configure-the-docker-daemon
-docker_options:
-  exec-opts:
-    - "native.cgroupdriver=cgroupfs"
-  log-driver: "json-file"
-  log-opts:
-    max-size: "100m"
-  storage-driver: "overlay2"
-  storage-opts:
-    - "overlay2.override_kernel_check=true"
+docker_options: "{{ _docker_options }}"
