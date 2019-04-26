@@ -4,6 +4,11 @@
 
 ### Major Changes
 
+  - Test with `docker run hello-world`
+  - Rollback to `native.cgroupdriver=systemd` for Kubernetes
+  - Remove patch for /lib/systemd/system/containerd.service
+  - Clone RHEL/CentOS Docker options from Kubespray
+
 ## 2.5.0 - 2019-04-17
 
 ### Major Changes

@@ -18,5 +18,22 @@ _yum: [
   { state: "absent", name: "docker" },
   { state: "absent", name: "docker-common" },
   { state: "absent", name: "docker-engine" },
+  { state: "latest", name: "containerd.io" },
   { state: "latest", name: "docker-ce" },
+  { state: "latest", name: "docker-ce-cli" },
 ]
+
+_docker_options:
+  exec-opts:
+    - "native.cgroupdriver=systemd"
+  iptables: false
+  log-driver: "json-file"
+  log-opts:
+    max-size: "100m"
+  storage-driver: "overlay2"
+  storage-opts:
+    - "overlay2.override_kernel_check=true"
+  add-runtime: "docker-runc=/usr/libexec/docker/docker-runc-current"
+  default-runtime: "docker-runc"
+  userland-proxy-path: "/usr/libexec/docker/docker-proxy-current"
+  signature-verification: false
