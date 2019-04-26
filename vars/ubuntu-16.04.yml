@@ -31,14 +31,3 @@ _apt: [
   { state: "latest", name: "docker-ce" },
   { state: "latest", name: "docker-ce-cli" },
 ]
-
-_docker_options:
-  exec-opts:
-    - "native.cgroupdriver=systemd"
-  iptables: false
-  log-driver: "json-file"
-  log-opts:
-    max-size: "100m"
-  storage-driver: "overlay2"
-  storage-opts:
-    - "overlay2.override_kernel_check=true"
