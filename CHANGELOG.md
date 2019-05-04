@@ -1,12 +1,17 @@
 # Ansible Role for Docker
 
-## 2.6.0 - TBC
+## 2.7.0 - TBC
+
+### Major Changes
+
+## 2.6.0 - 2019-05-04
 
 ### Major Changes
 
   - Test with `docker run hello-world`
   - Rollback to `native.cgroupdriver=systemd` for Kubernetes
   - Remove patch for /lib/systemd/system/containerd.service
+  - Refine Travis CI Molecue test cases
 
 ## 2.5.0 - 2019-04-17
 
