@@ -80,6 +80,10 @@
     - { dest: "/etc/docker/daemon.json" }
   tags: docker
 
+- name: flush handlers
+  meta: flush_handlers
+  tags: docker
+
 - name: enable service
   service:
     name: docker
