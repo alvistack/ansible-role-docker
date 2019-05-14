@@ -24,7 +24,11 @@
 
 - name: systemctl restart
   service:
-    name: docker
+    name: "{{ item.name }}"
     state: restarted
+  with_items:
+    - { name: "docker" }
+  when:
+    - ansible_service_mgr == 'systemd'
   changed_when: false
   ignore_errors: true
