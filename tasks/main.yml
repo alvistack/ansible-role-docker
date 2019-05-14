@@ -65,8 +65,8 @@
   with_items:
     - { dest: "/etc/docker/daemon.json" }
   notify:
-    - systemctl daemon-reload
-    - systemctl restart
+    - docker | systemctl daemon-reload
+    - docker | systemctl restart
   tags: docker
 
 - name: prepare files

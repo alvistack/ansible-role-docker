@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: systemctl daemon-reload
+- name: docker | systemctl daemon-reload
   systemd:
     daemon_reload: true
   when:
@@ -22,7 +22,7 @@
   changed_when: false
   ignore_errors: true
 
-- name: systemctl restart
+- name: docker | systemctl restart
   service:
     name: "{{ item.name }}"
     state: restarted
