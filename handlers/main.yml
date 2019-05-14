@@ -21,3 +21,10 @@
     - ansible_service_mgr == 'systemd'
   changed_when: false
   ignore_errors: true
+
+- name: systemctl restart
+  service:
+    name: docker
+    state: restarted
+  changed_when: false
+  ignore_errors: true

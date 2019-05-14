@@ -66,6 +66,7 @@
     - { dest: "/etc/docker/daemon.json" }
   notify:
     - systemctl daemon-reload
+    - systemctl restart
   tags: docker
 
 - name: prepare files
