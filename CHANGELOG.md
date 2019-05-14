@@ -4,6 +4,8 @@
 
 ### Major Changes
 
+  - Restart service if `daemon.json` changed
+
 ## 2.6.0 - 2019-05-04
 
 ### Major Changes
