@@ -1,10 +1,16 @@
 # Ansible Role for Docker
 
-## 2.7.0 - TBC
+## 3.1.0 - TBC
 
 ### Major Changes
 
-  - Restart service if `daemon.json` changed
+## 3.0.0 - 2019-05-20
+
+### Major Changes
+
+  - Upgrade minimal Ansible support to 2.8.0
+  - Improve handlers implementation
+  - Restart service if templates changed
 
 ## 2.6.0 - 2019-05-04
 
