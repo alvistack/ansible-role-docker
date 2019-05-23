@@ -23,12 +23,6 @@
 - hosts: all
   remote_user: root
   tasks:
-    - name: patch /.dockerenv
-      copy:
-        dest: "/.dockerenv"
-        content: ""
-        force: false
-
     - name: start service
       service:
         name: docker
