@@ -16,12 +16,14 @@
 
 - hosts: all
   remote_user: root
+  become: true
   roles:
     - role: bootstrap
     - role: docker
 
 - hosts: all
   remote_user: root
+  become: true
   tasks:
     - name: start service
       service:
