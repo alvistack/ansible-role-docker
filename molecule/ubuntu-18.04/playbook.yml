@@ -16,19 +16,15 @@
 
 - hosts: all
   remote_user: root
+  become: true
   roles:
     - role: bootstrap
     - role: docker
 
 - hosts: all
   remote_user: root
+  become: true
   tasks:
-    - name: patch /.dockerenv
-      copy:
-        dest: "/.dockerenv"
-        content: ""
-        force: false
-
     - name: start service
       service:
         name: docker
