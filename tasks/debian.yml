@@ -38,4 +38,6 @@
   with_items: "{{ _apt }}"
   register: result
   until: result is succeeded
+  notify:
+    - docker | systemctl restart
   tags: docker

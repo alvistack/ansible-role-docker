@@ -21,4 +21,6 @@
   with_items: "{{ _zypper }}"
   register: result
   until: result is succeeded
+  notify:
+    - docker | systemctl restart
   tags: docker
