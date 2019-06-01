@@ -90,8 +90,10 @@
 
 - name: enable service
   service:
-    name: docker
+    name: "{{ item.name }}"
     enabled: true
+  with_items:
+    - { name: "docker" }
   changed_when: false
   ignore_errors: true
   tags: docker
