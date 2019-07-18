@@ -30,3 +30,12 @@
     - { name: "docker" }
   changed_when: false
   ignore_errors: true
+
+- name: docker | sysctl --system
+  shell: |
+    set -o pipefail
+    sysctl --system
+  args:
+    executable: "/bin/bash"
+  changed_when: false
+  ignore_errors: true
