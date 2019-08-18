@@ -4,6 +4,8 @@
 
 ### Major Changes
 
+  - Restart service serially
+
 ## 3.2.0 - 2019-07-08
 
 ### Major Changes

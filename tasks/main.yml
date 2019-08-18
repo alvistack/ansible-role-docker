@@ -97,10 +97,8 @@
 
 - name: enable service
   service:
-    name: "{{ item.name }}"
+    name: "docker"
     enabled: true
-  loop:
-    - { name: "docker" }
   changed_when: false
   ignore_errors: true
   tags: docker

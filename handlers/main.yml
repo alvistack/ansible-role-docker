@@ -17,17 +17,16 @@
 - name: docker | systemctl daemon-reload
   systemd:
     daemon_reload: true
-  when:
-    - ansible_service_mgr == 'systemd'
   changed_when: false
   ignore_errors: true
 
 - name: docker | systemctl restart
   service:
-    name: "{{ item.name }}"
-    state: restarted
-  loop:
-    - { name: "docker" }
+    name: "docker"
+    state: "restarted"
+  loop: "{{ ansible_play_hosts }}"
+  delegated_to: "{{ item }}"
+  run_once: true
   changed_when: false
   ignore_errors: true
 
