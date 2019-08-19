@@ -27,8 +27,8 @@
   tasks:
     - name: start service
       service:
-        name: docker
-        state: started
+        name: "docker"
+        state: "started"
       changed_when: false
       ignore_errors: true
 
