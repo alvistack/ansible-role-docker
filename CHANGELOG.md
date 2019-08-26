@@ -1,10 +1,17 @@
 # Ansible Role for Docker
 
-## 3.3.0 - TBC
+## 3.4.0 - TBC
 
 ### Major Changes
 
+## 3.3.0 - 2019-08-27
+
+### Major Changes
+
+  - Update for RHEL 7
+  - Add Vagrant test for RHEL 7
   - Restart service serially
+  - Debug `WARNING: bridge-nf-call-iptables is disabled`
 
 ## 3.2.0 - 2019-07-08
 
