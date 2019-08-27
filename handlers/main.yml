@@ -29,3 +29,19 @@
   run_once: true
   changed_when: false
   ignore_errors: true
+
+- name: docker | systemctl restart systemd-modules-load
+  service:
+    name: "systemd-modules-load"
+    state: "restarted"
+  changed_when: false
+  ignore_errors: true
+
+- name: docker | sysctl --system
+  shell: |
+    set -o pipefail
+    sysctl --system
+  args:
+    executable: "/bin/bash"
+  changed_when: false
+  ignore_errors: true
