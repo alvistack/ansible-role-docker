@@ -70,12 +70,10 @@
     mode: "{{ item.mode | default('0644') }}"
   loop:
     - { dest: "/etc/docker/daemon.json" }
-    - { dest: "/etc/sysctl.d/50-docker.conf" }
     - { dest: "/usr/lib/modules-load.d/docker.conf" }
   notify:
     - docker | systemctl daemon-reload
     - docker | systemctl restart
-    - docker | sysctl --system
   tags: docker
 
 - name: prepare files
@@ -87,8 +85,16 @@
     state: "{{ item.state | default('file') }}"
   loop:
     - { dest: "/etc/docker/daemon.json" }
-    - { dest: "/etc/sysctl.d/50-docker.conf" }
     - { dest: "/usr/lib/modules-load.d/docker.conf" }
+  tags: docker
+
+- name: tweak sysctl entries
+  sysctl:
+    sysctl_file: "{{ item.sysctl_file }}"
+    name: "{{ item.name }}"
+    value: "{{ item.value | default(None) or omit }}"
+    state: "{{ item.state | default('present') }}"
+  loop: "{{ docker_sysctl }}"
   tags: docker
 
 - name: flush handlers

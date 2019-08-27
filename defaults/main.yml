@@ -26,3 +26,10 @@ docker_options:
   storage-driver: "overlay2"
   storage-opts:
     - "overlay2.override_kernel_check=true"
+
+# Entries for sysctl.
+docker_sysctl:
+  - { sysctl_file: "/etc/sysctl.d/50-docker.conf", state: "present", name: "net.bridge.bridge-nf-call-arptables", value: "1" }
+  - { sysctl_file: "/etc/sysctl.d/50-docker.conf", state: "present", name: "net.bridge.bridge-nf-call-ip6tables", value: "1" }
+  - { sysctl_file: "/etc/sysctl.d/50-docker.conf", state: "present", name: "net.bridge.bridge-nf-call-iptables", value: "1" }
+  - { sysctl_file: "/etc/sysctl.d/50-docker.conf", state: "present", name: "net.ipv4.ip_forward", value: "1" }
