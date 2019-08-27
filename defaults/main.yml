@@ -29,7 +29,7 @@ docker_options:
 
 # Kernel modules.
 docker_modprobe:
-  - { state: "present", line: "options br_netfilter" }
+  - { state: "present", line: "br_netfilter" }
 
 # Entries for sysctl.
 docker_sysctl:
