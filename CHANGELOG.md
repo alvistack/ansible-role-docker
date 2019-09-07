@@ -4,6 +4,9 @@
 
 ### Major Changes
 
+  - Apply sysctl entries in individual file
+  - Apply modprobe entries in individual file
+
 ## 3.3.0 - 2019-08-27
 
 ### Major Changes

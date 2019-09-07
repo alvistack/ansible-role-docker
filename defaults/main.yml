@@ -26,3 +26,14 @@ docker_options:
   storage-driver: "overlay2"
   storage-opts:
     - "overlay2.override_kernel_check=true"
+
+# Kernel modules.
+docker_modprobe:
+  - { state: "present", line: "br_netfilter" }
+
+# Entries for sysctl.
+docker_sysctl:
+  - { state: "present", line: "net.bridge.bridge-nf-call-arptables = 1" }
+  - { state: "present", line: "net.bridge.bridge-nf-call-ip6tables = 1" }
+  - { state: "present", line: "net.bridge.bridge-nf-call-iptables = 1" }
+  - { state: "present", line: "net.ipv4.ip_forward = 1" }
