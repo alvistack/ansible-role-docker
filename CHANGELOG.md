@@ -4,6 +4,7 @@
 
 ### Major Changes
 
+  - Run molecule test manually on Travis CI
   - Apply sysctl entries in individual file
   - Apply modprobe entries in individual file
 
