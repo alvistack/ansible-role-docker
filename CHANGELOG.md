@@ -1,9 +1,14 @@
 # Ansible Role for Docker
 
-## 3.4.0 - TBC
+## 3.5.0 - TBC
 
 ### Major Changes
 
+## 3.4.0 - 2019-09-18
+
+### Major Changes
+
+  - Run molecule test manually on Travis CI
   - Apply sysctl entries in individual file
   - Apply modprobe entries in individual file
 
