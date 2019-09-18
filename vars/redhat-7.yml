@@ -14,11 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_yum: [
-  { state: "absent", name: "docker" },
-  { state: "absent", name: "docker-common" },
-  { state: "absent", name: "docker-engine" },
-  { state: "latest", name: "containerd.io" },
-  { state: "latest", name: "docker-ce" },
-  { state: "latest", name: "docker-ce-cli" },
-]
+_yum:
+  - { state: "absent", name: "docker" }
+  - { state: "absent", name: "docker-common" }
+  - { state: "absent", name: "docker-engine" }
+  - { state: "latest", name: "containerd.io" }
+  - { state: "latest", name: "docker-ce" }
+  - { state: "latest", name: "docker-ce-cli" }

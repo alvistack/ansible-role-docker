@@ -14,20 +14,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_apt_key: [
-  { state: "absent", id: "2C52609D", url: "https://yum.dockerproject.org/gpg" },
-  { state: "present", id: "0EBFCD88", url: "https://download.docker.com/linux/ubuntu/gpg" },
-]
-_apt_repository: [
-  { state: "absent", repo: "deb https://apt.dockerproject.org/repo ubuntu-xenial main" },
-  { state: "absent", repo: "deb https://download.docker.com/linux/ubuntu xenial stable" },
-  { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable" },
-]
-_apt: [
-  { state: "absent", name: "docker" },
-  { state: "absent", name: "docker-engine" },
-  { state: "absent", name: "docker.io" },
-  { state: "latest", name: "containerd.io" },
-  { state: "latest", name: "docker-ce" },
-  { state: "latest", name: "docker-ce-cli" },
-]
+_apt_key:
+  - { state: "absent", id: "2C52609D", url: "https://yum.dockerproject.org/gpg" }
+  - { state: "present", id: "0EBFCD88", url: "https://download.docker.com/linux/ubuntu/gpg" }
+
+_apt_repository:
+  - { state: "absent", repo: "deb https://apt.dockerproject.org/repo ubuntu-xenial main" }
+  - { state: "absent", repo: "deb https://download.docker.com/linux/ubuntu xenial stable" }
+  - { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable" }
+
+_apt:
+  - { state: "absent", name: "docker" }
+  - { state: "absent", name: "docker-engine" }
+  - { state: "absent", name: "docker.io" }
+  - { state: "latest", name: "containerd.io" }
+  - { state: "latest", name: "docker-ce" }
+  - { state: "latest", name: "docker-ce-cli" }
