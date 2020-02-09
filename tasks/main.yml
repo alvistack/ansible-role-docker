@@ -101,7 +101,7 @@
 
 - name: tweak sysctl entries
   lineinfile:
-    path: "/etc/sysctl.d/50-docker.conf"
+    path: "/etc/sysctl.conf"
     line: "{{ item.line }}"
     regexp: "{{ item.regexp | default('^' + item.line | regex_escape() + '$') }}"
     state: "{{ item.state | default('present') }}"
