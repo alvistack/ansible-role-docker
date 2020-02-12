@@ -99,15 +99,11 @@
   tags: docker
 
 - name: tweak sysctl entries
-  lineinfile:
-    path: "/etc/sysctl.conf"
-    line: "{{ item.line }}"
-    regexp: "{{ item.regexp | default('^' + item.line | regex_escape() + '$') }}"
+  sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
     state: "{{ item.state | default('present') }}"
-    insertafter: "EOF"
   loop: "{{ docker_sysctl }}"
-  notify:
-    - docker | sysctl --system
   tags: docker
 
 - name: enable service
