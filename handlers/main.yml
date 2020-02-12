@@ -36,3 +36,8 @@
     state: "restarted"
   changed_when: false
   ignore_errors: true
+
+- name: docker | sysctl --system
+  command: sysctl --system
+  changed_when: false
+  ignore_errors: true

@@ -100,10 +100,14 @@
 
 - name: tweak sysctl entries
   sysctl:
+    sysctl_file: "/etc/sysctl.conf"
     name: "{{ item.name }}"
     value: "{{ item.value }}"
     state: "{{ item.state | default('present') }}"
+    reload: false
   loop: "{{ docker_sysctl }}"
+  notify:
+    - docker | sysctl --system
   tags: docker
 
 - name: enable service
