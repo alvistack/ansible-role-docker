@@ -14,25 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-galaxy_info:
-  role_name: docker
-  author: Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
-  description: Ansible Role for Docker Installation
-  company: PantaRei Design
-  license: Apache License 2.0
-  min_ansible_version: 2.9
-  platforms:
-    - name: Ubuntu
-      versions:
-        - xenial
-        - bionic
-        - eoan
-    - name: EL
-      versions:
-        - 7
-    - name: opensuse
-      versions:
-        - all
-  galaxy_tags:
-    - system
-dependencies: []
+_apt_key:
+  - { state: "present", url: "https://download.docker.com/linux/ubuntu/gpg" }
+
+_apt_repository:
+  - { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" }
+
+_apt:
+  - { state: "absent", name: "docker" }
+  - { state: "absent", name: "docker-engine" }
+  - { state: "absent", name: "docker.io" }
+  - { state: "latest", name: "containerd.io" }
+  - { state: "latest", name: "docker-ce" }
+  - { state: "latest", name: "docker-ce-cli" }
