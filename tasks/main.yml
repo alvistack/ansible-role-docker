@@ -110,14 +110,15 @@
     - docker | sysctl --system
   tags: docker
 
+- name: flush handlers
+  meta: flush_handlers
+  tags: docker
+
 - name: enable service
   service:
     name: "docker"
+    state: "started"
     enabled: true
   changed_when: false
   ignore_errors: true
-  tags: docker
-
-- name: flush handlers
-  meta: flush_handlers
   tags: docker
