@@ -18,13 +18,6 @@
   remote_user: root
   become: true
   tasks:
-    - name: start service
-      service:
-        name: "docker"
-        state: "started"
-      changed_when: false
-      ignore_errors: true
-
     - name: docker version
       command: docker version
       register: result
