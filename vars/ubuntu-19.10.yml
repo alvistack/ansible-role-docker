@@ -18,7 +18,7 @@ _apt_key:
   - { state: "present", url: "https://download.docker.com/linux/ubuntu/gpg" }
 
 _apt_repository:
-  - { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu eoan stable" }
+  - { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu eoan test" }
 
 _apt:
   - { state: "absent", name: "docker" }
