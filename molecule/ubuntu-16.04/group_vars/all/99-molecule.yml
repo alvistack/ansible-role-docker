@@ -13,17 +13,3 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-_apt_key:
-  - { state: "present", url: "https://download.docker.com/linux/ubuntu/gpg" }
-
-_apt_repository:
-  - { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu eoan test" }
-
-_apt:
-  - { state: "absent", name: "docker" }
-  - { state: "absent", name: "docker-engine" }
-  - { state: "absent", name: "docker.io" }
-  - { state: "latest", name: "containerd.io" }
-  - { state: "latest", name: "docker-ce" }
-  - { state: "latest", name: "docker-ce-cli" }
