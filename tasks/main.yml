@@ -110,14 +110,6 @@
     - docker | sysctl --system
   tags: docker
 
-- name: enable service
-  service:
-    name: "docker"
-    enabled: true
-  changed_when: false
-  ignore_errors: true
-  tags: docker
-
 - name: flush handlers
   meta: flush_handlers
   tags: docker
@@ -126,6 +118,7 @@
   service:
     name: "docker"
     state: "started"
+    enabled: true
   changed_when: false
   ignore_errors: true
   tags: docker
