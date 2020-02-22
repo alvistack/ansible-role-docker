@@ -15,10 +15,13 @@
 # limitations under the License.
 
 _apt_key:
-  - { state: "present", url: "https://download.docker.com/linux/ubuntu/gpg" }
+  - url: "https://download.docker.com/linux/ubuntu/gpg"
+    id: "9DC858229FC7DD38854AE2D88D81803C0EBFCD88"
+    state: "present"
 
 _apt_repository:
-  - { state: "present", repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable" }
+  - repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
+    state: "present"
 
 _apt:
   - { state: "absent", name: "docker" }
