@@ -17,6 +17,9 @@
 # Structured data passing to `/etc/docker/daemon.json` with `to_nice_json`.
 # See https://docs.docker.com/config/daemon/#configure-the-docker-daemon
 docker_options:
+  dns:
+    - "8.8.8.8"
+    - "8.8.4.4"
   exec-opts:
     - "native.cgroupdriver=systemd"
   iptables: false
