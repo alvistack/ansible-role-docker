@@ -22,3 +22,8 @@
       command: docker version
       register: result
       changed_when: result is not succeeded
+
+    - name: docker info
+      command: docker info
+      register: result
+      changed_when: result is not succeeded
