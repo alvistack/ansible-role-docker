@@ -74,17 +74,6 @@
     - docker | systemctl restart
   tags: docker
 
-- name: prepare files
-  file:
-    dest: "{{ item.dest }}"
-    owner: "{{ item.owner | default('root') }}"
-    group: "{{ item.group | default('root') }}"
-    mode: "{{ item.mode | default('0644') }}"
-    state: "{{ item.state | default('file') }}"
-  loop:
-    - { dest: "/etc/docker/daemon.json" }
-  tags: docker
-
 - name: tweak modeprobe entries
   lineinfile:
     path: "/usr/lib/modules-load.d/docker.conf"
@@ -110,11 +99,23 @@
     - docker | sysctl --system
   tags: docker
 
+- name: prepare files
+  file:
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0644') }}"
+    state: "{{ item.state | default('file') }}"
+  loop:
+    - { dest: "/etc/docker/daemon.json" }
+    - { dest: "/usr/lib/modules-load.d/docker.conf" }
+  tags: docker
+
 - name: flush handlers
   meta: flush_handlers
   tags: docker
 
-- name: enable service
+- name: start service
   service:
     name: "docker"
     state: "started"

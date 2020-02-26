@@ -23,12 +23,7 @@
       register: result
       changed_when: result is not succeeded
 
-    - name: docker pull hello-world
-      command: docker pull hello-world
-      register: result
-      changed_when: result is not succeeded
-
-    - name: docker run hello-world
-      command: docker run -itd --name hello-world hello-world
+    - name: docker info
+      command: docker info
       register: result
       changed_when: result is not succeeded

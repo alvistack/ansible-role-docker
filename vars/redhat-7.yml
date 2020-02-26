@@ -14,6 +14,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+_rpm_key:
+  - key: "https://download.docker.com/linux/centos/gpg"
+    fingerprint: "060A61C51B558A7F742B77AAC52FEB6B621E9F35"
+    state: "present"
+
+_yum_repository:
+  - file: "docker-ce-stable"
+    name: "docker-ce-stable"
+    description: "Docker CE Stable - $basearch"
+    baseurl: "https://download.docker.com/linux/centos/7/$basearch/stable"
+    gpgcheck: true
+    enabled: true
+    state: "present"
+
 _yum:
   - { state: "absent", name: "docker" }
   - { state: "absent", name: "docker-common" }

@@ -14,26 +14,34 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: yum install yum-utils
+- name: yum install gnupg2
   yum:
-    name: "yum-utils"
+    name: "gnupg2"
     state: "present"
-  changed_when: false
-  ignore_errors: true
+  register: result
+  until: result is succeeded
+  tags: docker
+
+- name: rpm --import
+  rpm_key:
+    key: "{{ item.key }}"
+    fingerprint: "{{ item.fingerprint }}"
+    state: "{{ item.state }}"
+  loop: "{{ _rpm_key }}"
+  register: result
+  until: result is succeeded
   tags: docker
 
 - name: yum-config-manager --add-repo
-  shell: |
-    set -o pipefail
-    yum-config-manager \
-      --add-repo \
-      https://download.docker.com/linux/centos/docker-ce.repo
-  args:
-    executable: "/bin/bash"
-    creates: "/etc/yum.repos.d/docker-ce.repo"
-  register: result
-  until: result is succeeded
-  changed_when: result is not succeeded
+  yum_repository:
+    file: "{{ item.file }}"
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    baseurl: "{{ item.baseurl }}"
+    gpgcheck: "{{ item.gpgcheck }}"
+    enabled: "{{ item.enabled }}"
+    state: "{{ item.state }}"
+  loop: "{{ _yum_repository }}"
   tags: docker
 
 - name: yum install
