@@ -17,6 +17,9 @@
 - hosts: all
   remote_user: root
   become: true
-  roles:
-    - role: bootstrap
-    - role: docker
+  tasks:
+    - include_role:
+        name: bootstrap
+
+    - include_role:
+        name: docker
