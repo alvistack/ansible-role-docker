@@ -19,7 +19,9 @@
 docker_options:
   exec-opts:
     - "native.cgroupdriver=systemd"
-  iptables: false
+  iptables: true
+  ip-masq: true
+  ip-forward: true
   log-driver: "json-file"
   log-opts:
     max-size: "100m"
