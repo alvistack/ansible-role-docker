@@ -5,6 +5,8 @@
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-docker.svg)](https://github.com/alvistack/ansible-role-docker/blob/master/LICENSE)
 [![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.docker-blue.svg)](https://galaxy.ansible.com/alvistack/docker)
 
+**\[DEPRECATED\] No CentOS 8 support, use skopeo/buildah/podman/cri\_o instead.**
+
 Ansible Role for Docker Installation.
 
 ## Requirements
