@@ -1,9 +1,11 @@
 # Ansible Role for Docker
 
-[![Travis](https://img.shields.io/travis/alvistack/ansible-role-docker.svg)](https://travis-ci.org/alvistack/ansible-role-docker)
+[![Travis](https://img.shields.io/travis/com/alvistack/ansible-role-docker.svg)](https://travis-ci.com/alvistack/ansible-role-docker)
 [![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-docker.svg)](https://github.com/alvistack/ansible-role-docker)
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-docker.svg)](https://github.com/alvistack/ansible-role-docker/blob/master/LICENSE)
 [![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.docker-blue.svg)](https://galaxy.ansible.com/alvistack/docker)
+
+**\[DEPRECATED\] No CentOS 8 support, use skopeo/buildah/podman/cri\_o instead.**
 
 Ansible Role for Docker Installation.
 
@@ -23,7 +25,7 @@ This role was designed for Ubuntu 16.04/18.04/19.10 or RHEL/CentOS 7 or openSUSE
 
 ## Example Playbook
 
-[molecule/ubuntu-18.04/playbook.yml](molecule/ubuntu-18.04/playbook.yml)
+[molecule/default/converge.yml](molecule/default/converge.yml)
 
 ## License
 
