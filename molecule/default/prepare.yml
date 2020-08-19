@@ -30,6 +30,7 @@
       raw: |
         set -ex
         setenforce 0
+        sed -i 's/^SELINUX=.*$/SELINUX=permissive/g' /etc/selinux/config
       changed_when: false
       ignore_errors: true
 
@@ -37,6 +38,7 @@
       raw: |
         set -ex
         systemctl stop firewalld.service
+        systemctl disable firewalld.service
       changed_when: false
       ignore_errors: true
 
@@ -44,10 +46,11 @@
       raw: |
         set -ex
         systemctl stop ufw.service
+        systemctl disable ufw.service
       changed_when: false
       ignore_errors: true
 
-    - name: redhat-7 | subscription-manager register
+    - name: redhat | subscription-manager register
       raw: |
         set -ex
         subscription-manager register \

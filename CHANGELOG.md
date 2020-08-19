@@ -1,11 +1,23 @@
 # Ansible Role for Docker
 
-## 4.2.7 - 2020-04-03
+## 4.5.0 - TBC
 
 ### Major Changes
 
-  - \[DEPRECATED\] No CentOS 8 support, use skopeo/buildah/podman/cri\_o instead
-  - Upgrade minimal Molecule support to 3.0.2
+## 4.4.0 - 2020-08-19
+
+### Major Changes
+
+  - Upgrade Travis CI test as Ubuntu Focal based
+  - Upgrade minimal Ansible support to 2.10.0
+  - Disable IPv6 with `sysctl`
+  - Support openSUSE Leap 15.2
+  - Remove Ubuntu 19.10 support
+  - Remove Ubuntu 16.04 support
+  - Support Fedora 32
+  - Support Debian 10
+  - Support CentOS/RHEL 8
+  - Support Ubuntu 20.04
   - Migrate role name to lowercase or underline
   - Migrate group name to lowercase or underline
   - Migrate molecule `group_vars` to file

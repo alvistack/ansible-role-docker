@@ -20,13 +20,10 @@ _apt_key:
     state: "present"
 
 _apt_repository:
-  - repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu eoan stable"
+  - repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
     state: "present"
 
 _apt:
-  - { state: "absent", name: "docker" }
-  - { state: "absent", name: "docker-engine" }
-  - { state: "absent", name: "docker.io" }
   - { state: "latest", name: "containerd.io" }
   - { state: "latest", name: "docker-ce" }
   - { state: "latest", name: "docker-ce-cli" }

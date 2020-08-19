@@ -19,7 +19,9 @@
   become: true
   tasks:
     - include_role:
-        name: bootstrap
+        name: python
+      tags: python
 
     - include_role:
         name: docker
+      tags: docker

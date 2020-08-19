@@ -20,7 +20,7 @@ driver:
     name: libvirt
 platforms:
   - name: ${MOLECULE_INSTANCE_NAME}-1
-    box: generic/ubuntu1910
+    box: generic/fedora32
     cpu: 2
     memory: 2048
     interfaces:
@@ -28,6 +28,7 @@ platforms:
         network_name: private_network
         type: dhcp
     provider_raw_config_args:
+      - 'video_type = "virtio"'
       - 'nic_model_type = "virtio"'
       - 'disk_bus = "virtio"'
       - 'volume_cache = "none"'
@@ -40,13 +41,13 @@ lint: |
 dependency:
   name: galaxy
   options:
-    role-file: ansible-role-requirements.yml
-    roles-path: ${ANSIBLE_ROLES_PATH}
+    role-file: ansible-galaxy-requirements.yml
+    roles-path: ${HOME}/.ansible/roles
+    requirements-file: ansible-galaxy-requirements.yml
+    collections-path: ${HOME}/.ansible/collections
     ignore-errors: true
 provisioner:
   name: ansible
-  env:
-    ANSIBLE_ROLES_PATH: ${ANSIBLE_ROLES_PATH}
   config_options:
     defaults:
       forks: 20

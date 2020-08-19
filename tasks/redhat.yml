@@ -38,8 +38,10 @@
     name: "{{ item.name }}"
     description: "{{ item.description }}"
     baseurl: "{{ item.baseurl }}"
-    gpgcheck: "{{ item.gpgcheck }}"
     enabled: "{{ item.enabled }}"
+    priority: "{{ item.priority }}"
+    gpgcheck: "{{ item.gpgcheck }}"
+    gpgkey: "{{ item.gpgkey }}"
     state: "{{ item.state }}"
   loop: "{{ _yum_repository }}"
   tags: docker

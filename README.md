@@ -5,15 +5,19 @@
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-docker.svg)](https://github.com/alvistack/ansible-role-docker/blob/master/LICENSE)
 [![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.docker-blue.svg)](https://galaxy.ansible.com/alvistack/docker)
 
-**\[DEPRECATED\] No CentOS 8 support, use skopeo/buildah/podman/cri\_o instead.**
-
 Ansible Role for Docker Installation.
 
 ## Requirements
 
-This role require Ansible 2.9 or higher.
+This role require Ansible 2.10 or higher.
 
-This role was designed for Ubuntu 16.04/18.04/19.10 or RHEL/CentOS 7 or openSUSE Leap 15.1.
+This role was designed for:
+
+  - Ubuntu 18.04/20.04
+  - RHEL/CentOS 7/8
+  - openSUSE Leap 15.2
+  - Debian 10
+  - Fedora 32
 
 ## Role Variables
 
@@ -21,11 +25,15 @@ This role was designed for Ubuntu 16.04/18.04/19.10 or RHEL/CentOS 7 or openSUSE
 
 ## Dependencies
 
-[meta/main.yml](meta/main.yml)
+[ansible-galaxy-requirements.yml](ansible-galaxy-requirements.yml)
 
 ## Example Playbook
 
 [molecule/default/converge.yml](molecule/default/converge.yml)
+
+This role could simply deploy to `localhost` as below:
+
+    molecule converge -s default
 
 ## License
 

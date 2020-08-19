@@ -20,17 +20,23 @@ galaxy_info:
   description: Ansible Role for Docker Installation
   company: PantaRei Design
   license: Apache-2.0
-  min_ansible_version: 2.9
+  min_ansible_version: 2.10
   platforms:
     - name: Ubuntu
       versions:
-        - eoan
+        - focal
         - bionic
-        - xenial
     - name: EL
       versions:
+        - 8
         - 7
     - name: opensuse
+      versions:
+        - 15.2
+    - name: Debian
+      versions:
+        - buster
+    - name: Fedora
       versions:
         - all
   galaxy_tags:

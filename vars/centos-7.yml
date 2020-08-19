@@ -22,16 +22,15 @@ _rpm_key:
 _yum_repository:
   - file: "docker-ce-stable"
     name: "docker-ce-stable"
-    description: "Docker CE Stable - $basearch"
-    baseurl: "https://download.docker.com/linux/centos/7/$basearch/stable"
-    gpgcheck: true
+    description: "Docker CE Stable - x86_64"
+    baseurl: "https://download.docker.com/linux/centos/7/x86_64/stable"
     enabled: true
+    priority: "2"
+    gpgcheck: true
+    gpgkey: "https://download.docker.com/linux/centos/gpg"
     state: "present"
 
 _yum:
-  - { state: "absent", name: "docker" }
-  - { state: "absent", name: "docker-common" }
-  - { state: "absent", name: "docker-engine" }
   - { state: "latest", name: "containerd.io" }
   - { state: "latest", name: "docker-ce" }
   - { state: "latest", name: "docker-ce-cli" }

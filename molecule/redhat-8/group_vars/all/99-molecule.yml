@@ -1,4 +1,4 @@
-#!/bin/bash
+---
 
 # (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
 #
@@ -13,5 +13,3 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-export MOLECULE_INSTANCE_NAME="$(pwgen -1AB 12)"
