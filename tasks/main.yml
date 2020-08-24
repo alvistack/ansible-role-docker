@@ -71,7 +71,7 @@
     - { dest: "/etc/docker/daemon.json" }
   notify:
     - docker | systemctl daemon-reload
-    - docker | systemctl restart
+    - docker | systemctl restart docker.service
   tags: docker
 
 - name: tweak modeprobe entries
@@ -84,7 +84,7 @@
     allow_no_value: true
   loop: "{{ docker_modprobe }}"
   notify:
-    - docker | systemctl restart systemd-modules-load
+    - docker | systemctl restart systemd-modules-load.service
   tags: docker
 
 - name: tweak sysctl entries
@@ -111,9 +111,9 @@
     - { dest: "/usr/lib/modules-load.d/docker.conf" }
   tags: docker
 
-- name: systemctl start docker
+- name: systemctl start docker.service
   service:
-    name: "docker"
+    name: "docker.service"
     state: "started"
     enabled: true
   changed_when: false
