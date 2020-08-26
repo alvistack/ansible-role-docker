@@ -1,6 +1,10 @@
 # Ansible Role for Docker
 
-## 4.5.0 - TBC
+## 4.6.0 - TBC
+
+### Major Changes
+
+## 4.5.0 - 2020-08-26
 
 ### Major Changes
 
@@ -10,7 +14,6 @@
 
   - Upgrade Travis CI test as Ubuntu Focal based
   - Upgrade minimal Ansible support to 2.10.0
-  - Disable IPv6 with `sysctl`
   - Support openSUSE Leap 15.2
   - Remove Ubuntu 19.10 support
   - Remove Ubuntu 16.04 support

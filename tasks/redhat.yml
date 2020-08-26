@@ -54,5 +54,5 @@
   register: result
   until: result is succeeded
   notify:
-    - docker | systemctl restart
+    - docker | systemctl restart docker.service
   tags: docker

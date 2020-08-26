@@ -14,9 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: docker | systemctl restart systemd-modules-load
+- name: docker | systemctl restart systemd-modules-load.service
   service:
-    name: "systemd-modules-load"
+    name: "systemd-modules-load.service"
     state: "restarted"
   changed_when: false
   ignore_errors: true
@@ -32,9 +32,9 @@
   changed_when: false
   ignore_errors: true
 
-- name: docker | systemctl restart
+- name: docker | systemctl restart docker.service
   service:
-    name: "docker"
+    name: "docker.service"
     state: "restarted"
     enabled: true
   loop: "{{ ansible_play_hosts }}"
