@@ -4,11 +4,11 @@
 
 ### Major Changes
 
-  - Upgrade minimal Ansible Lint support to 4.3.2
-
 ## 4.5.0 - 2020-08-26
 
 ### Major Changes
+
+  - Upgrade minimal Ansible Lint support to 4.3.2
 
 ## 4.4.0 - 2020-08-19
 
