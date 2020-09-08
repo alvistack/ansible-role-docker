@@ -31,7 +31,6 @@ _yum_repository:
     state: "present"
 
 _yum:
-  - { state: "latest", name: "procps-ng" }
   - { state: "latest", name: "https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.13-3.2.el7.x86_64.rpm" }
   - { state: "latest", name: "docker-ce" }
   - { state: "latest", name: "docker-ce-cli" }

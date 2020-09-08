@@ -52,3 +52,25 @@
   notify:
     - docker | systemctl restart docker.service
   tags: docker
+
+- name: zypper install procps
+  vars:
+    ansible_python_interpreter: "python3"
+  zypper:
+    name: "procps"
+    state: "present"
+  register: result
+  until: result is succeeded
+  tags: docker
+
+- name: tweak sysctl entries
+  sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    state: "{{ item.state }}"
+    sysctl_file: "/etc/sysctl.conf"
+    reload: false
+  loop: "{{ docker_sysctl }}"
+  notify:
+    - docker | sysctl --system
+  tags: docker

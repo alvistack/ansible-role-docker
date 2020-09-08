@@ -24,7 +24,6 @@ _apt_repository:
     state: "present"
 
 _apt:
-  - { state: "latest", name: "procps" }
   - { state: "latest", name: "containerd.io" }
   - { state: "latest", name: "docker-ce" }
   - { state: "latest", name: "docker-ce-cli" }
