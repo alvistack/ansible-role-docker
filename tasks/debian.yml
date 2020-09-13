@@ -52,3 +52,11 @@
   notify:
     - docker | systemctl restart docker.service
   tags: docker
+
+- name: apt-get install procps
+  apt:
+    name: "procps"
+    state: "present"
+  register: result
+  until: result is succeeded
+  tags: docker

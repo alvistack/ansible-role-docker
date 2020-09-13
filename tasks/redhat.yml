@@ -56,3 +56,11 @@
   notify:
     - docker | systemctl restart docker.service
   tags: docker
+
+- name: yum install procps-ng
+  yum:
+    name: "procps-ng"
+    state: "present"
+  register: result
+  until: result is succeeded
+  tags: docker
