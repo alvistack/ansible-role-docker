@@ -16,7 +16,6 @@
 
 - name: include default variables
   include_vars: "../vars/main.yml"
-  tags: docker
 
 - name: include release specific variables
   include_vars: "{{ lookup('first_found', _params) }}"
@@ -31,7 +30,6 @@
       paths:
         - "../vars"
   ignore_errors: true
-  tags: docker
 
 - name: include release specific tasks
   include_tasks: "{{ lookup('first_found', _params) }}"
@@ -46,7 +44,6 @@
       paths:
         - "."
   ignore_errors: true
-  tags: docker
 
 - name: prepare directories
   file:
@@ -58,7 +55,6 @@
   loop:
     - { dest: "/etc/docker" }
     - { dest: "/usr/lib/modules-load.d" }
-  tags: docker
 
 - name: copy templates
   template:
@@ -72,7 +68,6 @@
   notify:
     - docker | systemctl daemon-reload
     - docker | systemctl restart docker.service
-  tags: docker
 
 - name: tweak modeprobe entries
   ini_file:
@@ -85,7 +80,6 @@
   loop: "{{ docker_modprobe }}"
   notify:
     - docker | systemctl restart systemd-modules-load.service
-  tags: docker
 
 - name: tweak sysctl entries
   sysctl:
@@ -97,7 +91,6 @@
   loop: "{{ docker_sysctl }}"
   notify:
     - docker | sysctl --system
-  tags: docker
 
 - name: prepare files
   file:
@@ -109,7 +102,6 @@
   loop:
     - { dest: "/etc/docker/daemon.json" }
     - { dest: "/usr/lib/modules-load.d/docker.conf" }
-  tags: docker
 
 - name: systemctl start docker.service
   service:
@@ -118,8 +110,6 @@
     enabled: true
   changed_when: false
   ignore_errors: true
-  tags: docker
 
 - name: flush handlers
   meta: flush_handlers
-  tags: docker
