@@ -103,6 +103,9 @@
     - { dest: "/etc/docker/daemon.json" }
     - { dest: "/usr/lib/modules-load.d/docker.conf" }
 
+- name: flush handlers
+  meta: flush_handlers
+
 - name: systemctl start docker.service
   service:
     name: "docker.service"
@@ -110,6 +113,3 @@
     enabled: true
   changed_when: false
   ignore_errors: true
-
-- name: flush handlers
-  meta: flush_handlers
