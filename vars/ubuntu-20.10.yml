@@ -20,7 +20,7 @@ _apt_key:
     state: "present"
 
 _apt_repository:
-  - repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+  - repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu groovy test"
     state: "present"
 
 _apt:
