@@ -20,7 +20,7 @@ _apt_key:
     state: "present"
 
 _apt_repository:
-  - repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu groovy test"
+  - repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu groovy stable"
     state: "present"
 
 _apt:
