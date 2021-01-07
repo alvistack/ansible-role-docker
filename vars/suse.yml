@@ -16,7 +16,7 @@
 
 _zypper_repository:
   - name: "Virtualization:containers"
-    repo: "https://download.opensuse.org/repositories/Virtualization:/containers/openSUSE_Leap_15.2"
+    repo: "https://download.opensuse.org/repositories/Virtualization:/containers/openSUSE_Tumbleweed/"
     state: "present"
 
 _zypper:
