@@ -15,7 +15,7 @@
 # limitations under the License.
 
 _rpm_key:
-  - key: "https://download.docker.com/linux/rhel/gpg"
+  - key: "https://download.docker.com/linux/centos/gpg"
     fingerprint: "060A61C51B558A7F742B77AAC52FEB6B621E9F35"
     state: "present"
 
@@ -23,14 +23,14 @@ _yum_repository:
   - file: "docker-ce-stable"
     name: "docker-ce-stable"
     description: "Docker CE Stable - x86_64"
-    baseurl: "https://download.docker.com/linux/rhel/7/x86_64/stable"
+    baseurl: "https://download.docker.com/linux/centos/8/x86_64/stable"
     enabled: true
     priority: "2"
     gpgcheck: true
-    gpgkey: "https://download.docker.com/linux/rhel/gpg"
+    gpgkey: "https://download.docker.com/linux/centos/gpg"
     state: "present"
 
 _yum:
-  - { state: "latest", name: "https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.13-3.2.el7.x86_64.rpm" }
+  - { state: "latest", name: "containerd.io" }
   - { state: "latest", name: "docker-ce" }
   - { state: "latest", name: "docker-ce-cli" }
