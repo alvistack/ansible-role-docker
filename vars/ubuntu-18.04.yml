@@ -15,12 +15,12 @@
 # limitations under the License.
 
 _apt_key:
-  - url: "https://download.docker.com/linux/ubuntu/gpg"
+  - url: "http://download.docker.com/linux/ubuntu/gpg"
     id: "9DC858229FC7DD38854AE2D88D81803C0EBFCD88"
     state: "present"
 
 _apt_repository:
-  - repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+  - repo: "deb [arch=amd64] http://download.docker.com/linux/ubuntu bionic stable"
     state: "present"
 
 _apt:
