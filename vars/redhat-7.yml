@@ -15,7 +15,7 @@
 # limitations under the License.
 
 _rpm_key:
-  - key: "https://download.docker.com/linux/rhel/gpg"
+  - key: "http://download.docker.com/linux/rhel/gpg"
     fingerprint: "060A61C51B558A7F742B77AAC52FEB6B621E9F35"
     state: "present"
 
@@ -23,11 +23,11 @@ _yum_repository:
   - file: "docker-ce-stable"
     name: "docker-ce-stable"
     description: "Docker CE Stable - x86_64"
-    baseurl: "https://download.docker.com/linux/rhel/7/x86_64/stable"
+    baseurl: "http://download.docker.com/linux/rhel/7/x86_64/stable"
     enabled: true
     priority: "2"
     gpgcheck: true
-    gpgkey: "https://download.docker.com/linux/rhel/gpg"
+    gpgkey: "http://download.docker.com/linux/rhel/gpg"
     state: "present"
 
 _yum:
