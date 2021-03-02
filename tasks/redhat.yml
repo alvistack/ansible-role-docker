@@ -14,13 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: yum install gnupg2
-  yum:
-    name: "gnupg2"
-    state: "present"
-  register: result
-  until: result is succeeded
-
 - name: rpm --import
   rpm_key:
     key: "{{ item.key }}"
@@ -52,10 +45,3 @@
   until: result is succeeded
   notify:
     - docker | systemctl restart docker.service
-
-- name: yum install procps-ng
-  yum:
-    name: "procps-ng"
-    state: "present"
-  register: result
-  until: result is succeeded
