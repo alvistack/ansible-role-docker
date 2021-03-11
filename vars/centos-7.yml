@@ -30,6 +30,9 @@ _yum_repository:
     gpgkey: "http://download.docker.com/linux/centos/gpg"
     state: "present"
 
+_yum_config_manager:
+  - { state: "enable", name: "extras" }
+
 _yum:
   - { state: "latest", name: "containerd.io" }
   - { state: "latest", name: "docker-ce" }

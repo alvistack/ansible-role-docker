@@ -15,7 +15,7 @@
 # limitations under the License.
 
 _rpm_key:
-  - key: "http://download.docker.com/linux/rhel/gpg"
+  - key: "http://download.docker.com/linux/centos/gpg"
     fingerprint: "060A61C51B558A7F742B77AAC52FEB6B621E9F35"
     state: "present"
 
@@ -23,12 +23,15 @@ _yum_repository:
   - file: "docker-ce-stable"
     name: "docker-ce-stable"
     description: "Docker CE Stable - x86_64"
-    baseurl: "http://download.docker.com/linux/rhel/7/x86_64/stable"
+    baseurl: "http://download.docker.com/linux/centos/7/x86_64/stable"
     enabled: true
     priority: "2"
     gpgcheck: true
-    gpgkey: "http://download.docker.com/linux/rhel/gpg"
+    gpgkey: "http://download.docker.com/linux/centos/gpg"
     state: "present"
+
+_yum_config_manager:
+  - { state: "enable", name: "rhel-7-server-extras-rpms" }
 
 _yum:
   - { state: "latest", name: "containerd.io" }
