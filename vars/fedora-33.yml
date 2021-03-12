@@ -23,12 +23,14 @@ _yum_repository:
   - file: "docker-ce-stable"
     name: "docker-ce-stable"
     description: "Docker CE Stable - x86_64"
-    baseurl: "http://download.docker.com/linux/fedora/33/x86_64/test"
+    baseurl: "http://download.docker.com/linux/fedora/33/x86_64/stable"
     enabled: true
     priority: "2"
     gpgcheck: true
     gpgkey: "http://download.docker.com/linux/fedora/gpg"
     state: "present"
+
+_yum_config_manager: []
 
 _yum:
   - { state: "latest", name: "containerd.io" }
