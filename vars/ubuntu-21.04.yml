@@ -20,7 +20,7 @@ _apt_key:
     state: "present"
 
 _apt_repository:
-  - repo: "deb [arch=amd64] http://download.docker.com/linux/ubuntu groovy stable"
+  - repo: "deb [arch=amd64] http://download.docker.com/linux/ubuntu hirsute stable"
     state: "present"
 
 _apt:
