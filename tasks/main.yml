@@ -72,7 +72,6 @@
   loop:
     - { dest: "/etc/docker/daemon.json" }
   notify:
-    - docker | systemctl daemon-reload
     - docker | systemctl restart docker.service
 
 - name: tweak modeprobe entries
