@@ -14,7 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_zypper_repository: []
+_zypper_repository:
+  - name: "Virtualization:containers"
+    repo: "http://download.opensuse.org/repositories/Virtualization:/containers/openSUSE_Tumbleweed"
+    state: "present"
 
 _zypper:
   - { state: "latest", name: "containerd" }
