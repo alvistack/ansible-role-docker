@@ -1,13 +1,9 @@
 # Ansible Role for Docker
 
-[![Gitlab pipeline
-status](https://img.shields.io/gitlab/pipeline/alvistack/ansible-role-docker/master)](https://gitlab.com/alvistack/ansible-role-docker/-/pipelines)
-[![GitHub
-release](https://img.shields.io/github/release/alvistack/ansible-role-docker.svg)](https://github.com/alvistack/ansible-role-docker/releases)
-[![GitHub
-license](https://img.shields.io/github/license/alvistack/ansible-role-docker.svg)](https://github.com/alvistack/ansible-role-docker/blob/master/LICENSE)
-[![Ansible
-Role](https://img.shields.io/badge/galaxy-alvistack.docker-blue.svg)](https://galaxy.ansible.com/alvistack/docker)
+[![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/alvistack/ansible-role-docker/master)](https://gitlab.com/alvistack/ansible-role-docker/-/pipelines)
+[![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-docker.svg)](https://github.com/alvistack/ansible-role-docker/releases)
+[![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-docker.svg)](https://github.com/alvistack/ansible-role-docker/blob/master/LICENSE)
+[![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.docker-blue.svg)](https://galaxy.ansible.com/alvistack/docker)
 
 Ansible Role for Docker Installation.
 
@@ -43,8 +39,7 @@ This role could simply deploy to `localhost` as below:
 ## License
 
   - Code released under [Apache License 2.0](LICENSE)
-  - Docs released under [CC BY
-    4.0](http://creativecommons.org/licenses/by/4.0/)
+  - Docs released under [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/)
 
 ## Author Information
 
