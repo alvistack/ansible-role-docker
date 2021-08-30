@@ -22,6 +22,8 @@ docker_options:
   log-driver: "json-file"
   log-opts:
     max-size: "100m"
+  registry-mirrors:
+    - "https://mirror.gcr.io"
   storage-driver: "overlay2"
   storage-opts:
     - "overlay2.override_kernel_check=true"
