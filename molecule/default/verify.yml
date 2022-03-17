@@ -19,11 +19,11 @@
   become: true
   tasks:
     - name: docker version
-      command: docker version
+      ansible.builtin.command: docker version
       register: result
       changed_when: result is not succeeded
 
     - name: docker info
-      command: docker info
+      ansible.builtin.command: docker info
       register: result
       changed_when: result is not succeeded
