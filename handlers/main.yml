@@ -21,8 +21,10 @@
   changed_when: false
   failed_when: false
 
-- name: docker | sysctl --system
-  ansible.builtin.command: sysctl --system
+- name: docker | systemctl restart systemd-sysctl.service
+  ansible.builtin.service:
+    name: "systemd-sysctl.service"
+    state: "restarted"
   changed_when: false
   failed_when: false
 
