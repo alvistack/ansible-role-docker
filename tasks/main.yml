@@ -97,7 +97,7 @@
     reload: false
   loop: "{{ docker_sysctl }}"
   notify:
-    - docker | sysctl --system
+    - docker | systemctl restart systemd-sysctl.service
 
 - name: prepare files
   ansible.builtin.file:
