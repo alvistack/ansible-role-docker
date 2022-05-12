@@ -18,12 +18,12 @@
   remote_user: root
   become: true
   tasks:
-    - name: ansible --version
-      ansible.builtin.command: ansible --version
+    - name: docker version
+      ansible.builtin.command: docker version
       register: result
       changed_when: result is not succeeded
 
-    - name: ansible-lint --version
-      ansible.builtin.command: ansible-lint --version
+    - name: docker info
+      ansible.builtin.command: docker info
       register: result
       changed_when: result is not succeeded
