@@ -32,7 +32,7 @@ _yum_repository:
     state: "present"
 
 _yum_config_manager:
-  - { state: "enable", name: "rhel-9-for-x86_64-appstream-beta-rpms" }
+  - { state: "enable", name: "rhel-9-for-x86_64-appstream-rpms" }
 
 _yum:
   - { state: "latest", name: "containerd.io" }
