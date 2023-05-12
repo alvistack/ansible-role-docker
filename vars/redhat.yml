@@ -23,7 +23,7 @@ _yum_repository:
   - file: "docker-ce-stable"
     name: "docker-ce-stable"
     description: "Docker CE Stable - x86_64"
-    baseurl: "http://download.docker.com/linux/fedora/36/x86_64/stable"
+    baseurl: "http://download.docker.com/linux/fedora/38/x86_64/stable"
     enabled: true
     priority: "2"
     module_hotfixes: true
