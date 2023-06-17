@@ -22,7 +22,7 @@ _apt_key:
 
 _apt_repository:
   - filename: "docker"
-    repo: "deb [arch=amd64] http://download.docker.com/linux/debian bullseye stable"
+    repo: "deb [arch=amd64] http://download.docker.com/linux/debian bookworm stable"
     state: "present"
 
 _apt:
