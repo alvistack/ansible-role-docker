@@ -15,17 +15,17 @@
 # limitations under the License.
 
 _apt_key:
-  - keyring: "/etc/apt/trusted.gpg.d/docker.gpg"
-    url: "http://download.docker.com/linux/debian/gpg"
-    id: "9DC858229FC7DD38854AE2D88D81803C0EBFCD88"
-    state: "present"
+  - keyring: /etc/apt/trusted.gpg.d/docker.gpg
+    url: http://download.docker.com/linux/debian/gpg
+    id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+    state: present
 
 _apt_repository:
-  - filename: "docker"
-    repo: "deb [arch=amd64] http://download.docker.com/linux/debian bookworm stable"
-    state: "present"
+  - filename: docker
+    repo: deb [arch=amd64] http://download.docker.com/linux/debian bookworm stable
+    state: present
 
 _apt:
-  - { state: "latest", name: "containerd.io" }
-  - { state: "latest", name: "docker-ce" }
-  - { state: "latest", name: "docker-ce-cli" }
+  - { state: latest, name: containerd.io }
+  - { state: latest, name: docker-ce }
+  - { state: latest, name: docker-ce-cli }
