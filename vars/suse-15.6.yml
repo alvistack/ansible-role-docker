@@ -15,24 +15,22 @@
 # limitations under the License.
 
 _rpm_key:
-  - key: http://download.docker.com/linux/fedora/gpg
-    fingerprint: "060A61C51B558A7F742B77AAC52FEB6B621E9F35"
+  - key: http://downloadcontent.opensuse.org/repositories/Virtualization:/containers/openSUSE_Leap_15.6/repodata/repomd.xml.key
+    fingerprint: 55A0B34D49501BB7CA474F5AA193FBB572174FC2
     state: present
 
 _yum_repository:
-  - file: docker-ce-stable
-    name: docker-ce-stable
-    description: Docker CE Stable - x86_64
-    baseurl: http://download.docker.com/linux/fedora/38/x86_64/stable
+  - file: Virtualization_containers
+    name: Virtualization_containers
+    description: Virtualization:containers (openSUSE_Leap_15.6)
+    baseurl: http://downloadcontent.opensuse.org/repositories/Virtualization:/containers/openSUSE_Leap_15.6
     enabled: true
     priority: "2"
     module_hotfixes: true
     gpgcheck: true
-    gpgkey: http://download.docker.com/linux/fedora/gpg
+    gpgkey: http://downloadcontent.opensuse.org/repositories/Virtualization:/containers/openSUSE_Leap_15.6/repodata/repomd.xml.key
     state: present
 
-_yum_config_manager: []
-_yum:
-  - { state: latest, name: containerd.io }
-  - { state: latest, name: docker-ce }
-  - { state: latest, name: docker-ce-cli }
+_zypper:
+  - { state: latest, name: containerd }
+  - { state: latest, name: docker }

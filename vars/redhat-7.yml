@@ -16,7 +16,7 @@
 
 _rpm_key:
   - key: http://download.docker.com/linux/centos/gpg
-    fingerprint: "060A61C51B558A7F742B77AAC52FEB6B621E9F35"
+    fingerprint: 060A61C51B558A7F742B77AAC52FEB6B621E9F35
     state: present
 
 _yum_repository:
