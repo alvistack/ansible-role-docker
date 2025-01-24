@@ -14,13 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+_apt_key:
+  - url: http://download.docker.com/linux/debian/gpg
+    dest: /etc/apt/keyrings/docker.asc
+    checksum: "sha256:1500c1f56fa9e26b9b8f42452a553675796ade0807cdce11975eb98170b3a570"
+
 _deb822_repository:
   - name: docker
     types: deb
     uris: http://download.docker.com/linux/debian
     suites: noble
     components: stable
-    signed_by: http://download.docker.com/linux/debian/gpg
+    signed_by: /etc/apt/keyrings/docker.asc
     architectures: amd64
     enabled: true
     state: present
