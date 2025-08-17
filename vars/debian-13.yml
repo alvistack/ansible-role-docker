@@ -23,7 +23,7 @@ _deb822_repository:
   - name: docker
     types: deb
     uris: https://download.docker.com/linux/debian
-    suites: bookworm
+    suites: trixie
     components: stable
     signed_by: /etc/apt/keyrings/docker.asc
     architectures: amd64
