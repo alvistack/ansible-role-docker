@@ -1,6 +1,6 @@
 ---
 
-# Copyright 2025 Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
+# Copyright 2026 Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,14 +15,14 @@
 # limitations under the License.
 
 _apt_key:
-  - url: http://download.docker.com/linux/debian/gpg
+  - url: http://download.docker.com/linux/ubuntu/gpg
     dest: /etc/apt/keyrings/docker.asc
     checksum: "sha256:1500c1f56fa9e26b9b8f42452a553675796ade0807cdce11975eb98170b3a570"
 
 _deb822_repository:
   - name: docker
     types: deb
-    uris: http://download.docker.com/linux/debian
+    uris: http://download.docker.com/linux/ubuntu
     suites: focal
     components: stable
     signed_by: /etc/apt/keyrings/docker.asc
