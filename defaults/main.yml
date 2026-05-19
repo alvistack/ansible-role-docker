@@ -25,8 +25,6 @@ docker_options:
   registry-mirrors:
     - https://mirror.gcr.io
   storage-driver: overlay2
-  storage-opts:
-    - overlay2.override_kernel_check=true
   userland-proxy: false
 
 # Kernel modules.

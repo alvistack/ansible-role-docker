@@ -21,6 +21,8 @@
   loop: "{{ _rpm_key }}"
   register: result
   until: result is succeeded
+  tags:
+    - _rpm_key
 
 - name: yum-config-manager --add-repo
   ansible.builtin.yum_repository:
@@ -35,20 +37,26 @@
     gpgkey: "{{ item.gpgkey }}"
     state: "{{ item.state }}"
   loop: "{{ _yum_repository }}"
+  tags:
+    - _yum_repository
 
-- name: yum-config-manager --enable
+- name: dnf-config-manager --set-enable
   ansible.builtin.command:
-    cmd: yum-config-manager --{{ item.state }} {{ item.name }}
-  loop: "{{ _yum_config_manager }}"
+    cmd: dnf-config-manager --set-{{ item.state }} {{ item.name }}
+  loop: "{{ _dnf_config_manager }}"
   changed_when: false
   failed_when: false
+  tags:
+    - _dnf_config_manager
 
-- name: yum install
+- name: dnf install
   ansible.builtin.dnf:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
-  loop: "{{ _yum }}"
+  loop: "{{ _dnf }}"
   register: result
   until: result is succeeded
   notify:
     - docker | systemctl restart docker.service
+  tags:
+    - _dnf

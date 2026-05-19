@@ -31,8 +31,9 @@ _yum_repository:
     gpgkey: http://download.docker.com/linux/fedora/gpg
     state: present
 
-_yum_config_manager: []
-_yum:
+_dnf_config_manager: []
+
+_dnf:
   - { state: latest, name: containerd.io }
   - { state: latest, name: docker-ce }
   - { state: latest, name: docker-ce-cli }
